@@ -26,6 +26,24 @@ The build also writes the SEO files: it pre-renders the next 7 days of sessions 
 
 Set `SITE_URL` at the top of `scripts/build_sessions.py` to the new address and re-run the build. Canonical URL, social tags, structured data, sitemap and robots.txt all follow it.
 
+## Coach photos
+
+Book&Go has no coach photos. Put one file per coach in `img/coaches/`, named after the coach in lowercase
+(`stefano.jpg`, `aram.webp`, ...), ideally 800×600 or larger, face in the upper third. Re-run the build.
+Coaches without a photo show their initial.
+
+## Running on your own server
+
+Copy the folder to the server (e.g. `/var/www/padel`), put `.env` next to `index.html` (`chmod 600 .env`),
+serve the folder with nginx/Apache, and block web access to `.env`, `scripts/` and `logs/`.
+Then add a daily cron job (Python 3.9+, no extra packages):
+
+```
+15 5 * * *  /var/www/padel/scripts/refresh.sh
+```
+
+If Book&Go is down, the build stops before writing anything, so the site keeps the previous day's data.
+
 ## WhatsApp
 
 Set `const WHATSAPP = '66XXXXXXXXX'` in `index.html` (digits only, with country code) to show the WhatsApp buttons.
