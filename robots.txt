@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://rvt92.github.io/padel-coaching-bangkok/sitemap.xml
