@@ -164,6 +164,15 @@ h1 .dot{color:var(--ball)}
 .level-ui{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important}
 @media (max-width:940px){.level-ui{grid-template-columns:minmax(0,1fr)!important}}
 .level-side{display:grid;gap:16px;min-width:0}
+#levelForm{display:grid;gap:0;border-top:2px solid var(--line);align-self:start}
+.qrow{display:grid;gap:8px;padding:14px 0;border-bottom:1px solid rgba(234,241,255,.14)}
+.qrow label{font-weight:600;font-size:.98rem;line-height:1.35}
+.qrow label span{display:block;font:500 .66rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--glass);margin-bottom:6px}
+.qrow select{appearance:none;-webkit-appearance:none;cursor:pointer;padding:11px 40px 11px 14px;border-radius:4px;font-size:.93rem;
+  background:var(--night-2) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' fill='none' stroke='%23dff54a' stroke-width='2'/%3E%3C/svg%3E") no-repeat right 14px center;
+  text-overflow:ellipsis;transition:box-shadow .15s}
+.qrow select:hover{box-shadow:inset 0 0 0 1.5px rgba(234,241,255,.5)}
+.qrow select option{background:var(--night-2);color:var(--line)}
 .gauge-card{background:var(--night-2);border-radius:4px;padding:24px;display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:8px 24px;align-items:center}
 @media (max-width:520px){.gauge-card{grid-template-columns:minmax(0,1fr);text-align:center}.gauge-card svg{max-width:240px}}
 .gauge-card svg{width:100%;display:block;margin-inline:auto}
@@ -1256,7 +1265,7 @@ const level = (function(){
     {lo:6, hi:7, n:'Elite', look:'National and international circuit players. 7.0 is the professional tour.', half:'6.5: national ranking and regular FIP events.', next:'This is the top of the scale.'},
   ];
   const form = $('#levelForm');
-  form.innerHTML = Q.map((x,i) => `<fieldset class="q"><legend>${x.q}</legend><div class="opts">${x.o.map((o,j) => `<input type="radio" name="q${i}" id="q${i}o${j}" value="${j}" ${j===x.pre?'checked':''}><label for="q${i}o${j}">${o[0]}</label>`).join('')}</div></fieldset>`).join('');
+  form.innerHTML = Q.map((x,i) => `<div class="qrow"><label for="q${i}"><span>${x.area}</span>${x.q}</label><select id="q${i}">${x.o.map((o,j) => `<option value="${j}" ${j===x.pre?'selected':''}>${o[0]}</option>`).join('')}</select></div>`).join('');
   const ladder = $('#ladder');
   ladder.innerHTML = BANDS.map((b,i) => ({b,i})).reverse().map(({b,i}) => `
     <li class="band" data-i="${i}">
@@ -1287,7 +1296,7 @@ const level = (function(){
   let lvl = 3, lastBand = -1;
   function estimate(){
     const L = {};
-    Q.forEach((x,i) => { const c = form.querySelector(`input[name=q${i}]:checked`); L[x.k] = x.o[c ? +c.value : x.pre][1]; });
+    Q.forEach((x,i) => { const c = document.getElementById('q' + i); L[x.k] = x.o[c ? +c.value : x.pre][1]; });
     const skill = Q.filter(x => x.w > 0);
     const W = skill.reduce((s,x) => s + x.w, 0);
     let v = skill.reduce((s,x) => s + x.w*L[x.k], 0) / W;
