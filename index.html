@@ -3,9 +3,9 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Bandeja Lab Bangkok</title>
+<title>KROSS Padel Coaching</title>
 <meta name="claude:viewport-fit-sides" content="cover">
-<meta name="description" content="Padel coaching in Bangkok for every level. Private, duo and group sessions with coaches from Spain, Argentina and Thailand.">
+<meta name="description" content="KROSS Padel coaching in Bangkok: group classes, clinics, match play and americanos at On Nut, Indoor, Sky Club, Asoke and Kross Park. Find your level and the session that fits it.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
@@ -270,6 +270,48 @@ select:focus,input[type=text]:focus,textarea:focus{outline:2px solid var(--ball)
 .ticket .fine{font-size:.8rem;color:#3a4c74}
 .ticket .row{display:flex;gap:8px;flex-wrap:wrap}
 
+/* sessions */
+.filters{display:grid;gap:10px;margin-bottom:24px}
+.frow{display:grid;grid-template-columns:70px minmax(0,1fr);gap:10px;align-items:center}
+.frow>span{font:500 .7rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--glass)}
+@media (max-width:640px){.frow{grid-template-columns:minmax(0,1fr)}}
+.filters .chip{min-width:0;padding:8px 12px;font-size:.85rem}
+.sess-list{border-top:2px solid var(--line);margin-bottom:20px}
+.sday h3{font-size:1.35rem;padding:22px 0 6px;color:var(--glass)}
+.srow{display:grid;grid-template-columns:112px minmax(0,1fr) 92px 140px auto;gap:6px 20px;align-items:center;padding:12px 0;border-bottom:1px solid rgba(234,241,255,.12)}
+.srow .st{font:600 .88rem/1.3 var(--mono);font-variant-numeric:tabular-nums}
+.srow .sn{min-width:0}
+.srow .sn b{font-weight:600;display:block}
+.tags{display:flex;gap:6px;flex-wrap:wrap;margin-top:5px}
+.tags span{font:500 .68rem/1 var(--mono);padding:4px 7px;border-radius:2px;background:rgba(138,220,255,.12);color:var(--glass)}
+.tags .lvl{background:rgba(223,245,74,.12);color:var(--ball)}
+.srow .sv,.srow .sc{font-size:.88rem;color:var(--muted)}
+.srow .ask{padding:.6em .9em;font-size:.8rem}
+@media (max-width:760px){.srow{grid-template-columns:84px minmax(0,1fr)}.srow .sv,.srow .sc,.srow .ask{grid-column:2}.srow .ask{justify-self:start}}
+.empty{color:var(--muted);padding:24px 0}
+/* contact */
+.contact-ui{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,4vw,48px);align-items:start}
+@media (max-width:940px){.contact-ui{grid-template-columns:minmax(0,1fr)}}
+.cgrid{display:grid;gap:14px}
+.ccard{display:grid;gap:10px;padding:22px 24px;border-radius:4px;background:var(--night-2);text-decoration:none;transition:background .2s}
+a.ccard:hover{background:#0f2652}
+.ccard span{font:500 .7rem/1 var(--mono);letter-spacing:.12em;text-transform:uppercase;color:var(--glass)}
+.ccard b{font:800 clamp(1.7rem,3.6vw,2.5rem)/1 var(--display);overflow-wrap:anywhere}
+.ccard em{font-style:normal;color:var(--ball);font-weight:600}
+.ccard p{color:var(--muted);font-size:.92rem}
+.ccard .row{display:flex;gap:8px;flex-wrap:wrap}
+.ccard .row .btn{padding:.7em 1.1em;font-size:.84rem}
+.ticket .field{margin-bottom:0}
+.ticket .field>span{color:#3a4c74}
+.ticket select,.ticket input[type=text]{background:#fff;color:var(--night);box-shadow:inset 0 0 0 1.5px rgba(6,20,48,.2)}
+.ticket .row .btn{padding:.75em 1.1em;font-size:.86rem;text-decoration:none}
+.lvl-note .nx{display:block;color:var(--line);font-size:.88rem;padding:3px 0}
+.lvl-note .nx b{font:600 .76rem var(--mono);color:var(--ball);margin-right:6px}
+.cue.train{border-color:var(--glass)}
+.cue.train b{color:var(--glass)}
+.cue.train a{color:var(--glass)}
+.coach .btn{justify-self:start;padding:.65em 1em;font-size:.82rem;margin-top:4px}
+
 /* faq */
 .faq{display:grid;gap:0;max-width:880px}
 .faq details{border-top:1.5px solid rgba(234,241,255,.16)}
@@ -298,30 +340,30 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;
 <header class="hero lit" id="top">
   <div class="wrap">
     <nav class="nav" aria-label="Main">
-      <a class="logo" href="#top" aria-label="Bandeja Lab home">
+      <a class="logo" href="#top" aria-label="KROSS Padel Coaching home">
         <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="17" cy="17" r="13" fill="none" stroke="#eaf1ff" stroke-width="3"/><g fill="#eaf1ff"><circle cx="12" cy="13" r="1.6"/><circle cx="18" cy="11" r="1.6"/><circle cx="22" cy="16" r="1.6"/><circle cx="13" cy="20" r="1.6"/><circle cx="19" cy="22" r="1.6"/></g><path d="M26 26 L36 36" stroke="#eaf1ff" stroke-width="4" stroke-linecap="round"/><circle cx="33" cy="9" r="5" fill="#dff54a"/></svg>
-        Bandeja Lab
+        KROSS Coaching
       </a>
       <div class="nav-links">
-        <a href="#shots">Shots</a><a href="#level">Your level</a><a href="#programs">Programs</a><a href="#coaches">Coaches</a><a href="#faq">FAQ</a>
+        <a href="#shots">Shots</a><a href="#level">Your level</a><a href="#sessions">Sessions</a><a href="#coaches">Coaches</a><a href="#contact">Contact</a>
       </div>
-      <a class="btn btn-ball magnet" href="#book">Book a session</a>
+      <a class="btn btn-ball magnet" href="#contact">Join on LINE</a>
     </nav>
 
     <div class="hero-grid">
       <div class="hero-copy">
-        <p class="eyebrow">Padel coaching · Bangkok</p>
+        <p class="eyebrow">KROSS Padel · Coaching · Bangkok</p>
         <h1 aria-label="Play the glass.">
           <span class="w" aria-hidden="true" data-split>Play</span>
           <span class="w" aria-hidden="true" data-split>the</span>
           <span class="w outline" aria-hidden="true"><span data-split>glass</span><span class="dot ch" style="--i:12">.</span></span>
         </h1>
-        <p class="lede">We coach padel in Bangkok, mostly early mornings and after work. Groups of four, coaches from Spain, Argentina and Thailand, covered courts in Sukhumvit, Ari and Rama 9. Most people rally in their first hour. Using the glass takes a bit longer, and that's the part we're good at.</p>
+        <p class="lede">Group classes, skill clinics, match play with a coach and americanos at every KROSS venue, from your first rally to league level. Find your level, then pick a session that fits it. The timetable comes straight from our booking system.</p>
         <div class="hero-ctas">
-          <a class="btn btn-ball magnet" href="#book">Book a session</a>
+          <a class="btn btn-ball magnet" href="#sessions">See this week's sessions</a>
           <a class="btn btn-ghost" href="#level">Find your level</a>
         </div>
-        <div class="hero-meta"><span>Rackets included for beginners</span><span>Sessions 07:00 and 17:00–22:30</span><span>English · Español · ไทย</span></div>
+        <div class="hero-meta"><span id="heroCount">Coached sessions every day</span><span>On Nut · Indoor · Sky Club · Asoke · Kross Park</span></div>
       </div>
 
       <div>
@@ -404,6 +446,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;
             <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="tag" id="shotLvl"></span><button class="tag" id="replay" type="button" style="border:0;cursor:pointer;font-family:var(--mono)">↻ Replay</button></div>
           </div>
           <p class="cue" id="shotCue"></p>
+          <p class="cue train" id="shotTrain" hidden></p>
         </div>
       </div>
     </div>
@@ -414,7 +457,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;
   <div class="wrap">
     <div class="sec-head">
       <h2 id="levelH">What's your level?</h2>
-      <p class="lede">Bangkok booking apps rate players from 0 to 7. Answer nine questions about what you actually do on court and we'll estimate your level, show what's holding it back, and point you to the right program. Your coach confirms it in the first session.</p>
+      <p class="lede">Bangkok booking apps rate players from 0 to 7. Answer nine questions about what you actually do on court and we'll estimate your level, show what's holding it back, and list the KROSS sessions that fit you. Your coach confirms it in the first session.</p>
     </div>
     <div class="level-ui">
       <form id="levelForm" onsubmit="return false"></form>
@@ -437,7 +480,7 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;
           <p id="lvlCap" class="cap" hidden></p>
           <p id="lvlGap"></p>
           <p class="lvl-note" id="lvlNote"></p>
-          <a class="btn btn-ball" href="#book" id="lvlBook">Book this level</a>
+          <a class="btn btn-ball" href="#sessions" id="lvlBook">See sessions for my level</a>
         </div>
       </aside>
       <ol class="ladder" id="ladder" aria-label="The 0 to 7 level scale"></ol>
@@ -447,42 +490,20 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;
   </div>
 </section>
 
-<section class="sec lit" id="programs" aria-labelledby="progH">
+<section class="sec lit" id="sessions" aria-labelledby="sessH">
   <div class="wrap">
     <div class="sec-head">
-      <h2 id="progH">Programs and prices</h2>
-      <p class="lede">Each program runs on the same weekly slot with the same group, so you train with people at your level. Court fees, balls and water are included.</p>
+      <h2 id="sessH">Coached sessions</h2>
+      <p class="lede">Group classes, clinics, match play and americanos at every KROSS venue. Filter by your level, venue or type, then ask us on LINE to join.</p>
     </div>
-    <div class="plist" id="progCards">
-      <article class="prow" data-min="0" data-max="1.49" data-focus="Basics and first rallies">
-        <div><h3>First Rally<span class="you">YOUR LEVEL</span></h3><p>Grip, ready position, forehand and backhand, and what the ball does off the glass. No experience needed, rackets on us.</p></div>
-        <span class="lv">Level<b>0 – 1.5</b></span>
-        <span class="fm">4 × 60 min<b>Group of 4</b></span>
-        <span class="pr">฿2,400<small>per person</small></span>
-        <a class="btn btn-ghost" href="#book" data-pick>Book</a>
-      </article>
-      <article class="prow" data-min="1.5" data-max="2.99" data-focus="Walls and glass">
-        <div><h3>Glass &amp; Grip<span class="you">YOUR LEVEL</span></h3><p>Back-glass and side-glass exits, the lob, the volley, and where to stand as a pair.</p></div>
-        <span class="lv">Level<b>1.5 – 3</b></span>
-        <span class="fm">6 × 90 min<b>Group of 4</b></span>
-        <span class="pr">฿4,500<small>per person</small></span>
-        <a class="btn btn-ghost" href="#book" data-pick>Book</a>
-      </article>
-      <article class="prow" data-min="3" data-max="4.49" data-focus="Overheads: bandeja and víbora">
-        <div><h3>Net Pressure<span class="you">YOUR LEVEL</span></h3><p>Bandeja, víbora and chiquita. Taking the net, keeping it, and moving with your partner. Two sessions filmed.</p></div>
-        <span class="lv">Level<b>3 – 4.5</b></span>
-        <span class="fm">6 × 90 min<b>Group of 4</b></span>
-        <span class="pr">฿5,100<small>per person</small></span>
-        <a class="btn btn-ghost" href="#book" data-pick>Book</a>
-      </article>
-      <article class="prow" data-min="4.5" data-max="7" data-focus="Match tactics and video">
-        <div><h3>Match Lab<span class="you">YOUR LEVEL</span></h3><p>Bajadas, por tres, serve patterns and game plans, plus a full video review of one of your league matches.</p></div>
-        <span class="lv">Level<b>4.5 +</b></span>
-        <span class="fm">4 × 90 min<b>2 players, 1 coach</b></span>
-        <span class="pr">฿7,200<small>per person</small></span>
-        <a class="btn btn-ghost" href="#book" data-pick>Book</a>
-      </article>
+    <div class="filters">
+      <div class="frow"><span>Level</span><div class="chips" id="fLevel"></div></div>
+      <div class="frow"><span>Venue</span><div class="chips" id="fVenue"></div></div>
+      <div class="frow"><span>Type</span><div class="chips" id="fType"></div></div>
     </div>
+    <div class="sess-list" id="sessList" aria-live="polite"></div>
+    <button class="btn btn-ghost" id="sessMore" type="button">Show 7 more days</button>
+    <p class="ladder-note" id="sessStamp" style="margin-top:16px"></p>
   </div>
 </section>
 
@@ -490,52 +511,41 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;
   <div class="wrap">
     <div class="sec-head">
       <h2 id="coachH">Coaches</h2>
-      <p class="lede">You keep the same coach for a whole program. If you'd rather train with someone specific, mention it when you book.</p>
+      <p class="lede">The KROSS coaching team, the venues they work at and the sessions they run. Every coach also takes private lessons: ask for them by name on LINE.</p>
     </div>
     <div class="cards" id="coachCards"></div>
   </div>
 </section>
 
-<section class="sec lit" id="book" aria-labelledby="bookH">
+<section class="sec lit" id="contact" aria-labelledby="contactH">
   <div class="wrap">
     <div class="sec-head">
-      <h2 id="bookH">Book a session</h2>
-      <p class="lede">Choose a format, day and time. We prepare your request as a message you send to us on LINE, and a coach confirms within the hour between 08:00 and 22:00.</p>
+      <h2 id="contactH">Join the KROSS community</h2>
+      <p class="lede">Add our LINE Official account to join a session, book private coaching or hear about the weekly americanos. You can also email us or book through the KROSS app.</p>
     </div>
-    <div class="book-ui">
-      <div>
-        <div class="field"><span>Format</span><div class="chips" id="fmtChips"></div></div>
-        <div class="field"><span>Length</span><div class="chips" id="durChips"></div></div>
-        <div class="field"><span>Day</span><div class="chips" id="dayChips"></div></div>
-        <div class="field"><span>Time · Bangkok</span><div class="chips" id="timeChips"></div></div>
-        <label class="field" for="bkFocus"><span>Focus</span>
-          <select id="bkFocus">
-            <option>Coach decides</option>
-            <option>Basics and first rallies</option>
-            <option>Walls and glass</option>
-            <option>Overheads: bandeja and víbora</option>
-            <option>Match tactics and video</option>
-          </select>
-        </label>
-        <label class="field" for="bkName"><span>Your name</span><input type="text" id="bkName" placeholder="e.g. Nok" autocomplete="name"></label>
+    <div class="contact-ui">
+      <div class="cgrid">
+        <a class="ccard" href="https://line.me/ti/p/~@krosspadel" target="_blank" rel="noopener">
+          <span>LINE Official</span><b>@krosspadel</b><em>Add KROSS on LINE →</em>
+        </a>
+        <div class="ccard">
+          <span>Email</span><b>info@krosspadel.com</b>
+          <div class="row"><button class="btn btn-ghost" type="button" id="copyEmail">Copy email</button><a class="btn btn-ghost" href="mailto:info@krosspadel.com">Write an email</a></div>
+          <p id="emailNote" role="status"></p>
+        </div>
+        <a class="ccard" href="https://apps.apple.com/kz/app/kross-padel/id6741785490" target="_blank" rel="noopener">
+          <span>KROSS app</span><b>Book courts and sessions</b><em>Get it on the App Store →</em>
+        </a>
       </div>
       <aside class="ticket" aria-live="polite">
-        <h3>Session request</h3>
-        <dl>
-          <dt>Format</dt><dd id="tFmt"></dd>
-          <dt>Day</dt><dd id="tDay"></dd>
-          <dt>Time</dt><dd id="tTime"></dd>
-          <dt>Focus</dt><dd id="tFocus"></dd>
-          <dt>Price</dt><dd id="tPP"></dd>
-        </dl>
-        <div class="total"><span class="mono" style="font-size:.74rem;letter-spacing:.1em">TOTAL · COURT INCLUDED</span><strong id="tTotal"></strong></div>
-        <button class="btn btn-dark" type="button" id="prepBtn">Prepare my LINE message</button>
-        <div id="msgBox" hidden style="display:grid;gap:10px">
-          <label for="bkMsg" class="mono" style="font-size:.72rem;letter-spacing:.1em">COPY THIS AND SEND IT TO <b>@bandejalab</b> ON LINE</label>
-          <textarea id="bkMsg" readonly></textarea>
-          <div class="row"><button class="btn btn-dark" type="button" id="copyBtn" style="padding:.7em 1.1em;font-size:.84rem">Copy message</button><span class="fine" id="copyNote" role="status"></span></div>
-        </div>
-        <p class="fine">Free cancellation up to 24 hours before. Rain doesn't cancel: all our courts are covered.</p>
+        <h3>Your LINE message</h3>
+        <label class="field" for="msgTopic"><span>About</span><select id="msgTopic"></select></label>
+        <label class="field" for="bkName"><span>Your name</span><input type="text" id="bkName" placeholder="e.g. Nok" autocomplete="name"></label>
+        <label class="vh" for="bkMsg">Message</label>
+        <textarea id="bkMsg" readonly></textarea>
+        <div class="row"><button class="btn btn-dark" type="button" id="copyBtn">Copy message</button><a class="btn btn-dark" href="https://line.me/ti/p/~@krosspadel" target="_blank" rel="noopener">Open LINE</a></div>
+        <span class="fine" id="copyNote" role="status"></span>
+        <p class="fine">Copy the message, open LINE and paste it to @krosspadel. Session times can change, so we confirm every booking on LINE.</p>
       </aside>
     </div>
   </div>
@@ -545,24 +555,26 @@ footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;
   <div class="wrap">
     <div class="sec-head"><h2 id="faqH">Before your first session</h2></div>
     <div class="faq">
-      <details open><summary>I've never played. Is that a problem?</summary><p>No. First Rally is built for people who have never held a padel racket. Most players can keep a rally going by the end of the first hour. We lend rackets, and if you play tennis or squash you'll progress faster.</p></details>
+      <details open><summary>I've never played. Where do I start?</summary><p>Pick a Starter Class or Padel 101 in the timetable, or a Beginner Americano if you'd rather play straight away. Not sure? Run the level finder and send us the result on LINE.</p></details>
+      <details><summary>How do I join a session?</summary><p>Press "Ask on LINE" next to the session, copy the message and send it to @krosspadel. You can also email info@krosspadel.com or book in the KROSS app.</p></details>
+      <details><summary>Can I come on my own?</summary><p>Yes. Group classes, clinics and americanos are set up by level, so you don't need to bring a partner.</p></details>
+      <details><summary>Which venue should I pick?</summary><p>We coach at On Nut, Indoor, Sky Club, Asoke and Kross Park. Filter the timetable by venue to see what runs near you.</p></details>
       <details><summary>What should I wear?</summary><p>Light sports clothes and court shoes with a herringbone or omni sole. Running shoes slip on the sand-filled turf and are the most common cause of rolled ankles.</p></details>
-      <details><summary>What happens when it rains?</summary><p>Nothing. Every court we use is covered or indoor, so the monsoon months from May to October don't cancel sessions.</p></details>
-      <details><summary>Isn't it too hot?</summary><p>We run sessions at 07:00 and from 17:00 to 22:30 to avoid the midday heat. Cold water and towels are at every court.</p></details>
-      <details><summary>Can I come on my own?</summary><p>Yes. Pick a Clinic slot and we'll place you with three players at your level.</p></details>
+      <details><summary>How accurate is the level finder?</summary><p>It's an estimate on the 0–7 scale. Your coach confirms your level in your first session and moves you to another group if needed.</p></details>
     </div>
   </div>
 </section>
 
 <footer>
   <div class="wrap">
-    <span class="logo" style="font-size:1.2rem">Bandeja Lab</span>
-    <span>Covered courts in Sukhumvit, Ari and Rama 9 · LINE <b style="color:var(--line)">@bandejalab</b></span>
+    <span class="logo" style="font-size:1.2rem">KROSS Coaching</span>
+    <span>LINE <a href="https://line.me/ti/p/~@krosspadel" target="_blank" rel="noopener" style="color:var(--line)"><b>@krosspadel</b></a> · <b style="color:var(--line)">info@krosspadel.com</b> · <a href="https://krosspadel.com" target="_blank" rel="noopener">krosspadel.com</a></span>
     <a href="#top">Back to the court ↑</a>
-    <span style="flex-basis:100%;font-size:.78rem;opacity:.75">Concept site. The brand, coaches, prices and LINE ID are placeholders.</span>
+    <span style="flex-basis:100%;font-size:.78rem;opacity:.75" id="footStamp">Session times come from the KROSS booking system and can change. We confirm every booking on LINE.</span>
   </div>
 </footer>
 
+<script src="data/sessions.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
 <script>
 (function(){
@@ -573,6 +585,23 @@ const $ = (s, r=document) => r.querySelector(s);
 const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
 const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
 const thb = n => '฿' + n.toLocaleString('en-US');
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+
+/* ---------- KROSS data (data/sessions.js, built by scripts/build_sessions.py) ---------- */
+const KD = window.KROSS || null;
+const nrm = s => (s || '').normalize('NFKD').replace(/[\u0300-\u036f]/g, '').toLowerCase();
+function bkkNow(){
+  const p = new Intl.DateTimeFormat('en-CA', {timeZone:'Asia/Bangkok', year:'numeric', month:'2-digit', day:'2-digit', hour:'2-digit', minute:'2-digit', hourCycle:'h23'}).formatToParts(new Date());
+  const g = k => (p.find(x => x.type === k) || {}).value;
+  return {d:`${g('year')}-${g('month')}-${g('day')}`, t:`${g('hour')}:${g('minute')}`};
+}
+const UPCOMING = KD ? (() => { const n = bkkNow(); return KD.sessions.filter(s => s.d > n.d || (s.d === n.d && s.s >= n.t)); })() : [];
+const fmtDay = d => new Date(d + 'T00:00:00Z').toLocaleDateString('en-GB', {weekday:'short', day:'numeric', month:'short', timeZone:'UTC'});
+const lvRange = s => (s.lo === 0 && s.hi === 7) ? 'All levels' : `Lv ${s.lo}–${s.hi}`;
+const CATN = {class:'Group class', clinic:'Clinic', play:'Play with a coach', social:'Americano & league'};
+const fitsLevel = (s, l) => l >= s.lo - .25 && l <= s.hi + .25;
+const WEEK_END = (() => { const d = new Date(bkkNow().d + 'T00:00:00Z'); d.setUTCDate(d.getUTCDate() + 6); return d.toISOString().slice(0, 10); })();
+if (KD && $('#heroCount')) $('#heroCount').textContent = `${UPCOMING.length} coached sessions in the next 3 weeks`;
 
 /* ---------- headline split ---------- */
 let ci = 0;
@@ -1180,6 +1209,13 @@ if (!reduce && 'IntersectionObserver' in window){
     $('#shotWhat').textContent = sh.what;
     $('#shotLvl').textContent = sh.lvl;
     $('#shotCue').innerHTML = `<b>Coach's cue</b>${sh.cue}`;
+    const tr = $('#shotTrain');
+    if (tr){
+      const kws = (KD && KD.shotSkills && KD.shotSkills[sh.k]) || [];
+      let m = null; for (const k of kws){ m = UPCOMING.find(s => nrm(s.n).includes(k)); if (m) break; }
+      tr.hidden = !m;
+      if (m) tr.innerHTML = `<b>Train it at KROSS</b>${esc(m.n)} · ${fmtDay(m.d)} ${m.s} · ${esc(m.loc)}${m.c.length ? ' · ' + esc(m.c.join(', ')) : ''}. <a href="#sessions">See all sessions</a>`;
+    }
     if (v3){ v3.play(sh, animate); return; }
     players.innerHTML = figure(sh.you, '#eaf1ff', 'YOU') + sh.riv.map((x,i) => figure(x, '#ff7d4d', i ? '' : 'RIVALS')).join('');
     live.setAttribute('d', sh.d); ghost.setAttribute('d', sh.d);
@@ -1317,13 +1353,15 @@ const level = (function(){
   }
   function calc(){
     const r = estimate(); lvl = r.v;
-    const p = PROG.find(x => lvl <= x.max);
     const bi = BANDS.findIndex(b => lvl <= b.hi + .05), band = BANDS[bi];
     $('#lvlNum').textContent = lvl.toFixed(1);
     $('#lvlBand').textContent = band.n;
     $('#lvlRange').textContent = `Likely range ${r.lo.toFixed(1)}–${r.hi.toFixed(1)}`;
-    $('#lvlProg').textContent = p.n;
-    $('#lvlNote').textContent = p.note;
+    const mine = UPCOMING.filter(s => fitsLevel(s, lvl));
+    $('#lvlProg').textContent = KD ? `${mine.filter(s => s.d <= WEEK_END).length} sessions this week fit you` : band.n;
+    $('#lvlNote').innerHTML = mine.length
+      ? mine.slice(0, 3).map(s => `<span class="nx"><b>${fmtDay(s.d)} ${s.s}</b>${esc(s.n)} · ${esc(s.loc)}</span>`).join('')
+      : 'Message us on LINE and we\'ll place you in the right group.';
     $('#lvlCap').hidden = !r.cap; $('#lvlCap').textContent = r.cap || '';
     $('#lvlGap').innerHTML = r.gaps.length
       ? r.gaps.map(g => `<b>Work on ${g.area.toLowerCase()}:</b> ${TIPS[g.k]}`).join('<br>')
@@ -1341,10 +1379,7 @@ const level = (function(){
     if (bi !== lastBand){ $$('.band', ladder).forEach(li => toggleBand(li, +li.dataset.i === bi)); lastBand = bi; }
     $('#gArc').setAttribute('stroke-dashoffset', (100 - lvl/7*100).toFixed(1));
     $('#gNeedle').style.transform = `rotate(${(lvl/7*180 - 90).toFixed(1)}deg)`;
-    $$('#progCards .prow').forEach(c => c.classList.toggle('match', lvl >= +c.dataset.min && lvl <= +c.dataset.max));
-    const match = $('#progCards .prow.match');
-    $('#lvlBook').dataset.focus = match ? match.dataset.focus : '';
-    $('#lvlBook').textContent = 'Book ' + p.n;
+    $('#lvlBook').textContent = `See sessions for level ${lvl.toFixed(1)}`;
     document.dispatchEvent(new CustomEvent('levelchange'));
   }
   form.addEventListener('change', calc);
@@ -1354,106 +1389,122 @@ const level = (function(){
 
 
 /* =====================================================
-   COACHES (placeholder profiles)
+   CONTACT — LINE message builder
    ===================================================== */
-(function coaches(){
-  const C = [
-    {n:'Javier Molina', i:'JM', role:'HEAD COACH · VALENCIA', bio:'Twelve years coaching club players in Valencia before moving to Bangkok. Lives at the net.', l:'EN · ES', s:[['ATTACK',92],['DEFENCE',74],['TACTICS',86]], c:['#1446a0','#8adcff']},
-    {n:'Lucía Ferraro', i:'LF', role:'DEFENCE & GLASS · ROSARIO', bio:'Grew up on Argentine courts where every ball comes back. Teaches the walls better than anyone.', l:'EN · ES · IT', s:[['ATTACK',70],['DEFENCE',95],['TACTICS',84]], c:['#0a1d44','#ff7d4d']},
-    {n:'Ploy Srisuk', i:'PS', role:'BEGINNERS & JUNIORS · BANGKOK', bio:'Former national-level badminton player. Gets total beginners rallying in their first hour.', l:'ไทย · EN', s:[['ATTACK',78],['DEFENCE',82],['TEACHING',97]], c:['#123f94','#dff54a']},
-    {n:'Tom Achterberg', i:'TA', role:'MATCH LAB · AMSTERDAM', bio:'Runs our video analysis. Turns one filmed league match into three things to fix this week.', l:'EN · NL', s:[['ATTACK',80],['DEFENCE',78],['TACTICS',96]], c:['#061430','#8adcff']},
-  ];
-  // flat court colours: blue, terracotta, green, slate (padel courts come in all of them)
-  const PH = ['#1446a0','#b5532f','#2f6b4e','#3c4a6b'];
-  const AT = ['Usually at Sukhumvit · Mon, Wed, Fri evenings','Usually at Ari · Tue & Thu evenings, Sat morning','Usually at Rama 9 · weekday 07:00 sessions','Usually at Sukhumvit · Sat & Sun'];
-  const wrap = $('#coachCards');
-  wrap.innerHTML = C.map((c,k) => `
-    <article class="coach">
-      <div class="ph" style="background:${PH[k]}">
-        <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
-          <g stroke="#eaf1ff" stroke-opacity=".22" stroke-width="2" fill="none"><rect x="30" y="30" width="340" height="240"/><line x1="200" y1="30" x2="200" y2="270" stroke-dasharray="6 5"/><line x1="94" y1="30" x2="94" y2="270"/><line x1="306" y1="30" x2="306" y2="270"/><line x1="94" y1="150" x2="306" y2="150"/></g>
-        </svg>
-        <b>${c.i}</b>
-      </div>
-      <div class="bd">
-        <span class="role">${c.role}</span>
-        <h3>${c.n}</h3>
-        <p>${c.bio}</p>
-        <span class="langs">${c.l}</span>
-        <span class="at">${AT[k]}</span>
-      </div>
-    </article>`).join('');
+const contact = (function(){
+  const sel = $('#msgTopic'), ta = $('#bkMsg'), nameEl = $('#bkName');
+  let picked = null, coachPick = null;
+  const TOPICS = [['community','Joining the KROSS community'], ['group','Finding the right group for my level'], ['private','Private coaching']];
+  function options(){
+    const keep = sel.value;
+    sel.innerHTML = (picked ? `<option value="session">${esc(picked.n)} · ${fmtDay(picked.d)} ${picked.s}</option>` : '')
+      + TOPICS.map(([v,t]) => `<option value="${v}">${t}${v === 'private' && coachPick ? ' with ' + esc(coachPick) : ''}</option>`).join('');
+    if (keep && sel.querySelector(`option[value="${keep}"]`)) sel.value = keep;
+  }
+  function build(){
+    const lv = level.get().toFixed(1), name = nameEl.value.trim() || '(your name)', v = sel.value;
+    let m;
+    if (v === 'session' && picked) m = `Hi KROSS! I'd like to join ${picked.n} on ${fmtDay(picked.d)} at ${picked.s} at KROSS ${picked.loc}${picked.c.length ? ' with ' + picked.c.join(' & ') : ''}.`;
+    else if (v === 'private') m = `Hi KROSS! I'd like to book private coaching${coachPick ? ' with ' + coachPick : ''}. Which days and venues are available?`;
+    else if (v === 'group') m = `Hi KROSS! Which group class or clinic fits me best?`;
+    else m = `Hi KROSS! I'd like to join the community and hear about sessions for my level.`;
+    ta.value = `${m}\nMy level: about ${lv} (from the level finder)\nName: ${name}`;
+    $('#copyNote').textContent = '';
+  }
+  function go(){ $('#contact').scrollIntoView({behavior: reduce ? 'auto' : 'smooth'}); }
+  function copyText(text, note, okMsg, el){
+    const fallback = () => { if (el){ el.focus(); el.select(); } note.textContent = 'Select the text and press Ctrl+C or ⌘C.'; };
+    if (navigator.clipboard && navigator.clipboard.writeText) navigator.clipboard.writeText(text).then(() => { note.textContent = okMsg; }, fallback);
+    else fallback();
+  }
+  sel.addEventListener('change', build);
+  nameEl.addEventListener('input', build);
+  document.addEventListener('levelchange', build);
+  $('#copyBtn').addEventListener('click', () => copyText(ta.value, $('#copyNote'), 'Copied. Open LINE and paste it to @krosspadel.', ta));
+  $('#copyEmail').addEventListener('click', () => copyText('info@krosspadel.com', $('#emailNote'), 'Copied: info@krosspadel.com'));
+  options(); build();
+  return {
+    session(s){ picked = s; options(); sel.value = 'session'; build(); go(); },
+    privateWith(c){ coachPick = c; options(); sel.value = 'private'; build(); go(); },
+  };
 })();
 
 /* =====================================================
-   BOOKING
+   COACHES — from the KROSS booking system
    ===================================================== */
-(function booking(){
-  const FMT = [
-    {k:'private', n:'Private', d:'1 player', pp:1800, players:1},
-    {k:'duo', n:'Duo', d:'2 players', pp:1100, players:2},
-    {k:'clinic', n:'Clinic', d:'4 players · come alone', pp:650, players:4},
-  ];
-  const DUR = [{m:60, f:1, n:'60 min'}, {m:90, f:1.5, n:'90 min'}];
-  const TIMES = ['07:00','08:30','17:00','18:30','20:00','21:30'];
-  const st = {fmt:FMT[1], dur:DUR[0], day:1, time:'18:30'};
-  // Bangkok "today"
-  const today = new Intl.DateTimeFormat('en-CA', {timeZone:'Asia/Bangkok'}).format(new Date()).split('-').map(Number);
-  const days = Array.from({length:7}, (_,i) => {
-    const d = new Date(Date.UTC(today[0], today[1]-1, today[2]+i));
-    return {
-      i, seed: d.getUTCDate() + d.getUTCMonth()*31,
-      wd: i===0 ? 'Today' : i===1 ? 'Tomorrow' : d.toLocaleDateString('en-GB',{weekday:'short', timeZone:'UTC'}),
-      dm: d.toLocaleDateString('en-GB',{day:'numeric', month:'short', timeZone:'UTC'}),
-      long: d.toLocaleDateString('en-GB',{weekday:'short', day:'numeric', month:'short', timeZone:'UTC'}),
-    };
-  });
-  const nowBkk = +new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Bangkok', hour:'2-digit', hour12:false}).format(new Date());
-  const taken = (day, ti) => (day.i === 0 && +TIMES[ti].slice(0,2) <= nowBkk) || ((day.seed*7 + ti*13) % 5 === 0);
+(function coaches(){
+  const wrap = $('#coachCards'), list = KD ? KD.coaches : [];
+  if (!list.length){ wrap.innerHTML = '<p class="lede">Coach profiles load from the KROSS booking system.</p>'; return; }
+  const PH = ['#1446a0','#b5532f','#2f6b4e','#3c4a6b'];
+  wrap.innerHTML = list.map((c,k) => `
+    <article class="coach">
+      <div class="ph" style="background:${PH[k % PH.length]}">
+        <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <g stroke="#eaf1ff" stroke-opacity=".22" stroke-width="2" fill="none"><rect x="30" y="30" width="340" height="240"/><line x1="200" y1="30" x2="200" y2="270" stroke-dasharray="6 5"/><line x1="94" y1="30" x2="94" y2="270"/><line x1="306" y1="30" x2="306" y2="270"/><line x1="94" y1="150" x2="306" y2="150"/></g>
+        </svg>
+        <b>${esc(c.name.charAt(0))}</b>
+      </div>
+      <div class="bd">
+        <span class="role">${c.locs.map(esc).join(' · ').toUpperCase()}</span>
+        <h3>${esc(c.name)}</h3>
+        <p>${c.runs.length ? 'Runs ' + c.runs.map(esc).join(', ') + '.' : 'Private lessons.'}</p>
+        ${c.private ? '<span class="at">Takes private lessons</span>' : ''}
+        <button class="btn btn-ghost" type="button" data-coach="${esc(c.name)}">Ask for ${esc(c.name)}</button>
+      </div>
+    </article>`).join('');
+  $$('[data-coach]', wrap).forEach(b => b.addEventListener('click', () => contact.privateWith(b.dataset.coach)));
+})();
 
-  function chip(el, html, pressed, onClick, cls='', disabled=false){
-    const b = document.createElement('button'); b.type = 'button'; b.className = 'chip ' + cls; b.innerHTML = html;
-    b.setAttribute('aria-pressed', pressed); b.disabled = disabled; b.addEventListener('click', onClick); el.appendChild(b);
+/* =====================================================
+   SESSIONS TIMETABLE
+   ===================================================== */
+(function sessions(){
+  const listEl = $('#sessList'), more = $('#sessMore');
+  if (!KD){ listEl.innerHTML = '<p class="empty">The timetable loads from data/sessions.js. Run scripts/build_sessions.py to create it.</p>'; more.hidden = true; return; }
+  const st = {lv:'mine', venue:'all', type:'all', days:7};
+  const LV = [['mine','Fits my level'], ['beg','Beginner · 0–2'], ['int','Intermediate · 2–4'], ['adv','Advanced · 4+'], ['all','All levels']];
+  const LVR = {beg:[0,2], int:[2,4], adv:[4,7]};
+  const days0 = [...new Set(UPCOMING.map(s => s.d))];
+  function chips(el, items, key){
+    el.innerHTML = '';
+    items.forEach(([v,t]) => {
+      const b = document.createElement('button'); b.type = 'button'; b.className = 'chip';
+      b.textContent = v === 'mine' ? `${t} · ${level.get().toFixed(1)}` : t;
+      b.setAttribute('aria-pressed', st[key] === v);
+      b.addEventListener('click', () => { st[key] = v; render(); });
+      el.appendChild(b);
+    });
+  }
+  function fit(s){
+    if (st.lv === 'all') return true;
+    if (st.lv === 'mine') return fitsLevel(s, level.get());
+    const [a,b] = LVR[st.lv]; return s.hi > a && s.lo < b;
   }
   function render(){
-    const f = $('#fmtChips'); f.innerHTML = '';
-    FMT.forEach(x => chip(f, `<b>${x.n}</b><small>${x.d} · ${thb(x.pp)}${x.players>1?' each':''}</small>`, st.fmt===x, () => { st.fmt = x; render(); }, 'fmt'));
-    const du = $('#durChips'); du.innerHTML = '';
-    DUR.forEach(x => chip(du, x.n, st.dur===x, () => { st.dur = x; render(); }));
-    const dy = $('#dayChips'); dy.innerHTML = '';
-    days.forEach(d => chip(dy, `${d.wd}<small>${d.dm}</small>`, st.day===d.i, () => { st.day = d.i; render(); }));
-    const day = days[st.day];
-    if (TIMES.indexOf(st.time) < 0 || taken(day, TIMES.indexOf(st.time))) st.time = TIMES.find((t,ti) => !taken(day, ti)) || null;
-    const tm = $('#timeChips'); tm.innerHTML = '';
-    TIMES.forEach((t,ti) => chip(tm, `${t}<small>${taken(day,ti)?'Full':'Open'}</small>`, st.time===t, () => { st.time = t; render(); }, '', taken(day,ti)));
-    const pp = Math.round(st.fmt.pp * st.dur.f), total = pp * st.fmt.players;
-    $('#tFmt').textContent = `${st.fmt.n} · ${st.dur.n}`;
-    $('#tDay').textContent = day.long;
-    $('#tTime').textContent = st.time || 'No open slots';
-    $('#tFocus').textContent = $('#bkFocus').value;
-    $('#tPP').textContent = thb(pp) + (st.fmt.players > 1 ? ` × ${st.fmt.players}` : '');
-    $('#tTotal').textContent = thb(total);
-    $('#prepBtn').disabled = !st.time;
-    if (!$('#msgBox').hidden) buildMsg();
+    chips($('#fLevel'), LV, 'lv');
+    chips($('#fVenue'), [['all','All venues'], ...KD.locations.map(l => [l,l])], 'venue');
+    chips($('#fType'), [['all','All types'], ...Object.entries(CATN)], 'type');
+    const shown = days0.slice(0, st.days);
+    const rows = UPCOMING.filter(s => shown.includes(s.d) && fit(s) && (st.venue === 'all' || s.loc === st.venue) && (st.type === 'all' || s.cat === st.type));
+    const byDay = {}; rows.forEach(s => (byDay[s.d] = byDay[s.d] || []).push(s));
+    listEl.innerHTML = rows.length ? Object.entries(byDay).map(([d,arr]) => `<div class="sday"><h3>${fmtDay(d)}</h3>${arr.map(s => `
+      <div class="srow">
+        <span class="st">${s.s}–${s.e}</span>
+        <div class="sn"><b>${esc(s.n)}</b><span class="tags"><span class="lvl">${lvRange(s)}</span><span>${CATN[s.cat]}</span></span></div>
+        <span class="sv">${esc(s.loc)}</span>
+        <span class="sc">${s.c.length ? esc(s.c.join(', ')) : '—'}</span>
+        <button class="btn btn-ghost ask" type="button" data-i="${UPCOMING.indexOf(s)}">Ask on LINE</button>
+      </div>`).join('')}</div>`).join('')
+      : `<p class="empty">Nothing matches these filters in the next ${shown.length} days. Try another venue or level, or <a href="#contact">ask us on LINE</a>.</p>`;
+    $$('.ask', listEl).forEach(b => b.addEventListener('click', () => contact.session(UPCOMING[+b.dataset.i])));
+    more.hidden = st.days >= days0.length;
   }
-  function buildMsg(){
-    const day = days[st.day], name = $('#bkName').value.trim();
-    $('#bkMsg').value = `Hi Bandeja Lab! I'd like to book a ${st.fmt.n} session (${st.dur.n}) on ${day.long} at ${st.time}.\nFocus: ${$('#bkFocus').value}\nMy level: about ${level.get().toFixed(1)}\nName: ${name || '(your name)'}`;
-  }
-  $('#bkFocus').addEventListener('change', render);
-  $('#bkName').addEventListener('input', () => { if (!$('#msgBox').hidden) buildMsg(); });
-  $('#prepBtn').addEventListener('click', () => { buildMsg(); $('#msgBox').hidden = false; $('#copyNote').textContent = ''; });
-  $('#copyBtn').addEventListener('click', () => {
-    const ta = $('#bkMsg');
-    const fallback = () => { ta.focus(); ta.select(); $('#copyNote').textContent = 'Selected. Press Ctrl+C or ⌘C to copy.'; };
-    if (navigator.clipboard && navigator.clipboard.writeText){
-      navigator.clipboard.writeText(ta.value).then(() => { $('#copyNote').textContent = 'Copied. Paste it into LINE.'; }, fallback);
-    } else fallback();
-  });
-  function pickFocus(f){ if (!f) return; const sel = $('#bkFocus'); const o = Array.from(sel.options).find(o => o.text === f); if (o){ sel.value = o.text; render(); } }
-  $$('[data-pick]').forEach(a => a.addEventListener('click', () => pickFocus(a.closest('.prow').dataset.focus)));
-  $('#lvlBook').addEventListener('click', e => pickFocus(e.currentTarget.dataset.focus));
-  document.addEventListener('levelchange', () => { if (!$('#msgBox').hidden) buildMsg(); });
+  more.addEventListener('click', () => { st.days += 7; render(); });
+  document.addEventListener('levelchange', render);
+  $('#lvlBook').addEventListener('click', () => { st.lv = 'mine'; st.venue = 'all'; st.type = 'all'; render(); });
+  const stamp = new Date(KD.generated).toLocaleString('en-GB', {timeZone:'Asia/Bangkok', day:'numeric', month:'short', hour:'2-digit', minute:'2-digit'});
+  $('#sessStamp').textContent = `${UPCOMING.length} upcoming sessions from the KROSS booking system, updated ${stamp} Bangkok time. Times can change; we confirm every booking on LINE.`;
+  $('#footStamp').textContent = `Session times come from the KROSS booking system (updated ${stamp}) and can change. We confirm every booking on LINE.`;
   render();
 })();
 })();
