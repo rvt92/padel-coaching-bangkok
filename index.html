@@ -1,0 +1,1453 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Bandeja Lab Bangkok</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<meta name="description" content="Padel coaching in Bangkok for every level. Private, duo and group sessions with coaches from Spain, Argentina and Thailand.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@700;800;900&family=Instrument+Sans:wght@400;500;600;700&family=JetBrains+Mono:wght@500;700&display=swap">
+<style>
+/* Layout: a night session under floodlights. Sections are court zones split by white court lines; optic-yellow belongs to the ball and the main action only. */
+:root{
+  --night:#061430;
+  --night-2:#0a1d44;
+  --turf:#1446a0;
+  --line:#eaf1ff;
+  --muted:#a3b6dc;
+  --ball:#dff54a;
+  --glass:#8adcff;
+  --clay:#ff7d4d;
+  --display:"Big Shoulders Display","Arial Narrow",Impact,sans-serif;
+  --body:"Instrument Sans",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --mono:"JetBrains Mono",ui-monospace,Consolas,monospace;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{background:var(--night);color:var(--line);font:400 17px/1.6 var(--body);overflow-x:clip;-webkit-font-smoothing:antialiased}
+a{color:inherit}
+:focus-visible{outline:2px solid var(--ball);outline-offset:3px;border-radius:4px}
+.wrap{max-width:1200px;margin-inline:auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+@media (min-width:760px){.wrap{padding-left:max(32px,env(safe-area-inset-left,0px));padding-right:max(32px,env(safe-area-inset-right,0px))}}
+h1,h2,h3{font-family:var(--display);text-transform:uppercase;line-height:.9;margin:0;text-wrap:balance;letter-spacing:.005em}
+h2{font-size:clamp(2.3rem,4.6vw,3.6rem);font-weight:800;text-transform:none;line-height:1}
+h3{font-size:1.7rem;font-weight:800}
+p{margin:0}
+.eyebrow{font:500 .76rem/1 var(--mono);letter-spacing:.16em;text-transform:uppercase;color:var(--glass);display:flex;align-items:center;gap:10px}
+.lede{color:var(--muted);max-width:58ch;font-size:1.05rem}
+.sec{padding-block:clamp(64px,9vw,112px);position:relative;border-top:1px solid rgba(234,241,255,.16)}
+.sec-head{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px 48px;align-items:end;margin-bottom:clamp(28px,4vw,44px)}
+@media (max-width:860px){.sec-head{grid-template-columns:minmax(0,1fr)}}
+.lit{background:var(--night)}
+.mono{font-family:var(--mono)}
+.btn{display:inline-flex;align-items:center;gap:.6em;padding:.95em 1.5em;border-radius:4px;font:700 .95rem/1 var(--body);letter-spacing:.01em;text-decoration:none;border:0;cursor:pointer;transition:background .2s,color .2s,box-shadow .2s}
+.btn-ball{background:var(--ball);color:var(--night)}
+.btn-ball:hover{background:#ecff7a}
+.btn-ghost{background:transparent;color:var(--line);box-shadow:inset 0 0 0 1.5px rgba(234,241,255,.35)}
+.btn-ghost:hover{box-shadow:inset 0 0 0 1.5px var(--line)}
+.vh{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* progress */
+.progress{position:fixed;left:0;right:0;top:env(safe-area-inset-top,0px);height:3px;z-index:50;pointer-events:none}
+.progress i{position:absolute;left:0;top:0;height:3px;width:var(--p,0%);background:linear-gradient(90deg,transparent,var(--glass))}
+.progress b{position:absolute;top:-4px;left:calc(var(--p,0%) - 5px);width:11px;height:11px;border-radius:50%;background:var(--ball)}
+
+/* hero */
+.hero{padding-block:22px clamp(56px,8vw,96px);background:var(--night);position:relative;overflow:hidden}
+.nav{display:flex;align-items:center;justify-content:space-between;gap:16px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;font:900 1.5rem/1 var(--display);text-transform:uppercase;letter-spacing:.02em}
+.logo svg{width:34px;height:34px}
+.nav-links{display:flex;gap:26px;font-size:.92rem;color:var(--muted)}
+.nav-links a{text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--line)}
+@media (max-width:880px){.nav-links{display:none}}
+.hero-grid{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:clamp(32px,5vw,64px);align-items:center;margin-top:clamp(40px,7vw,80px)}
+@media (max-width:940px){.hero-grid{grid-template-columns:minmax(0,1fr)}}
+.hero-copy{display:grid;gap:24px;min-width:0}
+h1{font-size:clamp(4.2rem,10.5vw,8.6rem);font-weight:900;line-height:.8}
+h1 .w{display:block;white-space:nowrap}
+h1 .ch{display:inline-block;animation:drop .95s cubic-bezier(.28,1.7,.5,1) both;animation-delay:calc(var(--i) * 42ms)}
+h1 .outline .ch{color:transparent;-webkit-text-stroke:2px var(--glass)}
+h1 .dot{color:var(--ball)}
+@keyframes drop{0%{transform:translateY(-.55em) scaleY(1.08)}60%{transform:translateY(0) scaleY(.92)}100%{transform:none}}
+.hero-ctas{display:flex;flex-wrap:wrap;gap:12px}
+.hero-meta{display:flex;flex-wrap:wrap;gap:8px 22px;font:500 .8rem/1.4 var(--mono);color:var(--muted)}
+.hero-meta span:not(:last-child)::after{content:"/";margin-left:22px;color:rgba(234,241,255,.25)}
+
+.court-box{position:relative;border-radius:4px;padding:8px;background:#0e2a5c;min-width:0}
+.court-box canvas{display:block;width:100%;aspect-ratio:2/1;border-radius:2px;touch-action:pan-y;background:var(--turf)}
+.court-box.playing canvas{touch-action:none;cursor:none}
+.toast{position:absolute;left:50%;top:44%;transform:translate(-50%,-50%) scale(.9);font:900 clamp(1.4rem,3.4vw,2.4rem)/1 var(--display);text-transform:uppercase;text-align:center;padding:12px 20px;border-radius:10px;background:rgba(6,20,48,.82);backdrop-filter:blur(4px);opacity:0;transition:opacity .25s,transform .25s;pointer-events:none;max-width:90%}
+.toast.on{opacity:1;transform:translate(-50%,-50%) scale(1)}
+.toast small{display:block;font:500 .75rem/1.4 var(--mono);letter-spacing:.08em;color:var(--muted);margin-top:6px;text-transform:none}
+.hud{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px 18px;padding:12px 4px 2px}
+.board{display:flex;align-items:stretch;gap:2px;font-family:var(--mono);font-variant-numeric:tabular-nums}
+.board div{background:rgba(6,20,48,.7);padding:6px 10px;display:grid;gap:2px;text-align:center;min-width:56px}
+.board div:first-child{border-radius:8px 0 0 8px}.board div:last-child{border-radius:0 8px 8px 0}
+.board small{font-size:.62rem;letter-spacing:.14em;color:var(--muted)}
+.board strong{font-size:1.05rem;line-height:1}
+.board .pts strong{color:var(--ball)}
+.glassmeter{font:500 .74rem/1.3 var(--mono);color:var(--muted);max-width:30ch}
+.glassmeter b{color:var(--line)}
+#playBtn{padding:.75em 1.2em;font-size:.86rem}
+
+/* marquee */
+.marquee-wrap{overflow:hidden;padding-block:26px;margin-block:-12px;position:relative;z-index:2}
+.marquee{background:var(--ball);color:var(--night);transform:rotate(-1.6deg);border-block:3px solid var(--night);box-shadow:0 0 0 2px var(--ball)}
+.track{display:flex;width:max-content;animation:slide 34s linear infinite}
+.track span{font:900 clamp(1.5rem,3vw,2.2rem)/1 var(--display);text-transform:uppercase;padding:14px 22px;white-space:nowrap}
+.track span::after{content:"";display:inline-block;width:.42em;height:.42em;border-radius:50%;background:var(--night);margin-left:44px;vertical-align:.12em}
+@keyframes slide{to{transform:translateX(-50%)}}
+
+/* specs */
+.specs{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:0;border:2px solid rgba(234,241,255,.2);border-radius:14px;overflow:hidden}
+.spec{padding:26px 22px;display:grid;gap:6px;border-right:2px solid rgba(234,241,255,.12)}
+.spec:last-child{border-right:0}
+.spec strong{font:900 clamp(2.6rem,5vw,3.8rem)/.9 var(--display);font-variant-numeric:tabular-nums}
+.spec strong em{font-style:normal;font-size:.5em;color:var(--glass);margin-left:4px}
+.spec span{color:var(--muted);font-size:.92rem}
+@media (max-width:760px){.specs{grid-template-columns:repeat(2,minmax(0,1fr))}.spec:nth-child(2){border-right:0}.spec:nth-child(-n+2){border-bottom:2px solid rgba(234,241,255,.12)}}
+
+/* shots */
+.shot-ui{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,9fr);gap:28px;align-items:start}
+.stage3d{position:relative;aspect-ratio:16/10;max-width:100%;border-radius:4px;overflow:hidden;background:#061430}
+@media (max-width:640px){.stage3d{aspect-ratio:4/3}}
+.stage3d canvas{display:block;width:100%;height:100%;touch-action:pan-y}
+@media (pointer:fine){.stage3d canvas{cursor:grab}}
+.cam-ui{position:absolute;top:10px;right:10px;left:10px;display:flex;gap:4px;flex-wrap:wrap;justify-content:flex-end;pointer-events:none}
+.cam-ui button{all:unset;pointer-events:auto;cursor:pointer;font:600 .7rem/1 var(--mono);letter-spacing:.04em;padding:8px 10px;border-radius:3px;background:rgba(6,20,48,.72);color:var(--muted);backdrop-filter:blur(6px);transition:background .15s,color .15s}
+.cam-ui button:hover{color:var(--line)}
+.cam-ui button[aria-pressed="true"]{background:var(--line);color:var(--night)}
+.cam-ui button#slowBtn[aria-pressed="true"]{background:var(--ball)}
+.cam-ui button:focus-visible{outline:2px solid var(--ball)}
+.stage-hint{position:absolute;left:12px;bottom:10px;font:500 .68rem/1 var(--mono);color:var(--muted);pointer-events:none}
+.lbl3d{position:absolute;left:0;top:0;pointer-events:none;font:700 .66rem/1 var(--mono);letter-spacing:.12em;color:var(--night);background:var(--ball);padding:5px 7px;border-radius:2px;white-space:nowrap;will-change:transform}
+.lbl3d.glass{background:var(--glass)}.lbl3d.out{background:var(--clay)}.lbl3d.contact{background:var(--line)}
+@media (max-width:940px){.shot-ui{grid-template-columns:minmax(0,1fr)}}
+.shot-list{display:flex;flex-direction:column;gap:6px}
+@media (max-width:940px){.shot-list{flex-direction:row;flex-wrap:wrap}}
+.shot-btn{all:unset;box-sizing:border-box;cursor:pointer;display:flex;justify-content:space-between;align-items:baseline;gap:12px;padding:12px 16px;border-radius:4px;font:800 1.45rem/1 var(--display);text-transform:uppercase;color:var(--muted);transition:background .2s,color .2s,transform .2s}
+.shot-btn small{font:500 .7rem/1 var(--mono);letter-spacing:.08em;text-transform:none}
+.shot-btn:hover{color:var(--line);transform:translateX(4px)}
+.shot-btn[aria-pressed="true"]{background:var(--line);color:var(--night)}
+.shot-btn:focus-visible{outline:2px solid var(--ball)}
+@media (max-width:940px){.shot-btn{font-size:1.15rem;padding:10px 14px}.shot-btn small{display:none}.shot-btn:hover{transform:none}}
+.shot-stage{display:grid;gap:18px;min-width:0}
+.side-view{background:#0e2a5c;border-radius:4px;overflow:hidden}
+.side-view svg{display:block;width:100%;height:auto}
+.shot-info{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,1fr);gap:18px 28px}
+@media (max-width:640px){.shot-info{grid-template-columns:minmax(0,1fr)}}
+.shot-info h3{font-size:2.4rem;display:flex;align-items:baseline;gap:12px;flex-wrap:wrap}
+.shot-info h3 small{font:500 .82rem var(--mono);text-transform:none;color:var(--glass);letter-spacing:0}
+.shot-info .cue{border-left:3px solid var(--ball);padding:4px 0 4px 16px;color:var(--line)}
+.shot-info .cue b{display:block;font:500 .7rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--ball);margin-bottom:8px}
+.tag{display:inline-flex;font:500 .72rem/1 var(--mono);padding:6px 10px;border-radius:999px;background:rgba(138,220,255,.12);color:var(--glass);letter-spacing:.06em}
+.mark{opacity:0;transform-box:fill-box;transform-origin:center;transform:scale(.3);transition:opacity .2s,transform .45s cubic-bezier(.3,1.8,.5,1)}
+.mark.on{opacity:1;transform:scale(1)}
+
+/* level */
+.level-ui{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(28px,4vw,56px);align-items:start}
+@media (max-width:940px){.level-ui{grid-template-columns:minmax(0,1fr)}}
+.q{border:0;margin:0 0 26px;padding:0;min-width:0}
+.q legend{font-weight:600;font-size:1.05rem;margin-bottom:12px;padding:0}
+.q legend span{font:500 .72rem var(--mono);color:var(--glass);margin-right:10px}
+.opts{display:flex;flex-wrap:wrap;gap:8px}
+.opts input{position:absolute;opacity:0;pointer-events:none}
+.opts label{cursor:pointer;padding:10px 16px;border-radius:4px;font-size:.92rem;box-shadow:inset 0 0 0 1.5px rgba(234,241,255,.22);color:var(--muted);transition:all .18s}
+.opts label:hover{color:var(--line);box-shadow:inset 0 0 0 1.5px rgba(234,241,255,.5)}
+.opts input:checked+label{background:var(--glass);color:var(--night);box-shadow:none;font-weight:600}
+.opts input:focus-visible+label{outline:2px solid var(--ball);outline-offset:2px}
+.level-ui{grid-template-columns:minmax(0,1fr) minmax(0,1fr)!important}
+@media (max-width:940px){.level-ui{grid-template-columns:minmax(0,1fr)!important}}
+.level-side{display:grid;gap:16px;min-width:0}
+.gauge-card{background:var(--night-2);border-radius:4px;padding:24px;display:grid;grid-template-columns:minmax(0,190px) minmax(0,1fr);gap:8px 24px;align-items:center}
+@media (max-width:520px){.gauge-card{grid-template-columns:minmax(0,1fr);text-align:center}.gauge-card svg{max-width:240px}}
+.gauge-card svg{width:100%;display:block;margin-inline:auto}
+.gauge-txt{display:grid;gap:8px;min-width:0}
+.lvl-range{font:500 .74rem/1.4 var(--mono);color:var(--muted)}
+.lvl-band{font:600 .8rem/1 var(--mono);color:var(--glass);letter-spacing:.06em;text-transform:uppercase}
+.lvl-extra{grid-column:1/-1;display:grid;gap:10px;border-top:1px solid rgba(234,241,255,.12);padding-top:14px;margin-top:6px;font-size:.92rem}
+.lvl-extra p{color:var(--muted)}
+.lvl-extra b{color:var(--line);font-weight:600}
+.lvl-extra .cap{color:var(--clay)}
+.lvl-extra .btn{justify-self:start}
+.ladder{list-style:none;margin:0;padding:0;border-top:2px solid var(--line)}
+.band{border-bottom:1px solid rgba(234,241,255,.14);transition:background .2s}
+.band.cur{background:rgba(223,245,74,.06)}
+.band-h{all:unset;box-sizing:border-box;cursor:pointer;width:100%;display:grid;grid-template-columns:76px minmax(0,1fr) auto auto;gap:12px;align-items:center;padding:12px 10px}
+.band-h:focus-visible{outline:2px solid var(--ball);outline-offset:-2px}
+.band-h .rng{font:500 .78rem/1 var(--mono);color:var(--muted);font-variant-numeric:tabular-nums}
+.band-h b{font:800 1.25rem/1 var(--display);text-transform:uppercase;letter-spacing:.01em}
+.band-h .tag-you{font:700 .66rem/1 var(--mono);letter-spacing:.08em;color:var(--night);background:var(--ball);padding:5px 7px;border-radius:2px}
+.band-h .chev{font:500 .9rem/1 var(--mono);color:var(--muted)}
+.band-pos{height:4px;margin:0 10px 12px 98px;background:rgba(234,241,255,.1);border-radius:2px;position:relative}
+.band-pos i{position:absolute;top:-4px;width:12px;height:12px;border-radius:50%;background:var(--ball);transform:translateX(-50%);transition:left .6s cubic-bezier(.3,1.4,.5,1)}
+.band-pos::after{content:"";position:absolute;left:50%;top:-3px;width:1px;height:10px;background:rgba(234,241,255,.35)}
+.band-b{padding:0 10px 16px 98px;display:grid;gap:10px;font-size:.9rem}
+@media (max-width:520px){.band-b,.band-pos{margin-left:0;padding-left:10px}.band-pos{margin-left:10px}.band-h{grid-template-columns:62px minmax(0,1fr) auto auto}}
+.band-b p{color:var(--muted)}
+.band-b dl{margin:0;display:grid;gap:8px}
+.band-b dt{font:600 .68rem/1 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:var(--glass);margin-bottom:3px}
+.band-b dd{margin:0;color:var(--line)}
+.ladder-note{font-size:.8rem;color:var(--muted)}
+#gArc{transition:stroke-dashoffset .8s cubic-bezier(.3,1.3,.5,1)}
+#gNeedle{transition:transform .8s cubic-bezier(.3,1.5,.5,1);transform-origin:120px 124px}
+.lvl-num{font:900 4.4rem/.8 var(--display);font-variant-numeric:tabular-nums;color:var(--ball)}
+.lvl-prog{font:800 1.6rem/1 var(--display);text-transform:uppercase}
+.lvl-note{color:var(--muted);font-size:.92rem}
+
+/* programs */
+.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,250px),1fr));gap:18px}
+.plist{border-top:2px solid var(--line)}
+.prow{display:grid;grid-template-columns:minmax(0,2.6fr) minmax(0,1fr) minmax(0,1.3fr) minmax(0,1fr) auto;gap:14px 28px;align-items:center;padding:24px 12px;border-bottom:1px solid rgba(234,241,255,.18);transition:background .2s}
+.prow h3{font-size:1.9rem;text-transform:none;line-height:1}
+.prow p{color:var(--muted);font-size:.93rem;margin-top:8px;max-width:50ch}
+.prow .lv,.prow .fm{font:500 .8rem/1.5 var(--mono);color:var(--muted)}
+.prow .lv b,.prow .fm b{display:block;color:var(--line);font-weight:500}
+.prow .pr{font:800 1.9rem/1 var(--display);font-variant-numeric:tabular-nums}
+.prow .pr small{display:block;font:500 .72rem var(--body);color:var(--muted);margin-top:4px}
+.prow .btn{padding:.75em 1.1em;font-size:.86rem}
+.prow.match{background:rgba(223,245,74,.07)}
+.prow .you{display:none;font:600 .7rem/1 var(--mono);color:var(--ball);margin-left:12px;vertical-align:middle;letter-spacing:.06em}
+.prow.match .you{display:inline}
+@media (max-width:860px){.prow{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}.prow>div:first-child{grid-column:1/-1}.prow .btn{justify-self:start}}
+
+/* coaches */
+.coach{position:relative;border-radius:4px;overflow:hidden;background:var(--night-2);display:flex;flex-direction:column}
+.coach .at{font:500 .78rem/1.4 var(--mono);color:var(--line);border-top:1px solid rgba(234,241,255,.14);padding-top:10px;margin-top:4px}
+.coach .ph{aspect-ratio:4/3;max-width:100%;position:relative;display:grid;place-items:center;overflow:hidden}
+.coach .ph svg{position:absolute;inset:0;width:100%;height:100%}
+.coach .ph b{position:relative;font:900 4.4rem/1 var(--display);letter-spacing:.02em;text-shadow:0 6px 30px rgba(0,0,0,.4)}
+.coach .bd{padding:20px 22px 24px;display:grid;gap:10px}
+.coach .role{font:500 .72rem/1.3 var(--mono);color:var(--glass);letter-spacing:.06em}
+.coach p{color:var(--muted);font-size:.92rem}
+.bars{display:grid;gap:6px;margin-top:4px}
+.bar{display:grid;grid-template-columns:72px 1fr;align-items:center;gap:10px;font:500 .68rem/1 var(--mono);color:var(--muted);letter-spacing:.06em}
+.bar i{height:5px;border-radius:5px;background:rgba(234,241,255,.1);overflow:hidden}
+.bar i::after{content:"";display:block;height:100%;width:var(--v);background:linear-gradient(90deg,var(--glass),var(--ball));border-radius:5px}
+.langs{font:500 .72rem var(--mono);color:var(--line)}
+
+/* booking */
+.book-ui{display:grid;grid-template-columns:minmax(0,7fr) minmax(0,5fr);gap:clamp(24px,4vw,48px);align-items:start}
+@media (max-width:940px){.book-ui{grid-template-columns:minmax(0,1fr)}}
+.field{display:grid;gap:10px;margin-bottom:24px;min-width:0}
+.field>span{font:500 .72rem/1 var(--mono);letter-spacing:.14em;text-transform:uppercase;color:var(--glass)}
+.chips{display:flex;flex-wrap:wrap;gap:8px}
+.chip{all:unset;box-sizing:border-box;cursor:pointer;padding:10px 14px;border-radius:4px;box-shadow:inset 0 0 0 1.5px rgba(234,241,255,.2);display:grid;gap:3px;min-width:84px;text-align:center;transition:all .18s;font-size:.9rem}
+.chip small{font:500 .68rem/1 var(--mono);color:var(--muted)}
+.chip:hover{box-shadow:inset 0 0 0 1.5px rgba(234,241,255,.55)}
+.chip[aria-pressed="true"]{background:var(--line);color:var(--night);box-shadow:none}
+.chip[aria-pressed="true"] small{color:#3a4c74}
+.chip:disabled{opacity:.3;cursor:not-allowed;text-decoration:line-through}
+.chip:focus-visible{outline:2px solid var(--ball);outline-offset:2px}
+.chip.fmt{text-align:left;min-width:150px}
+.chip.fmt b{font:800 1.2rem/1 var(--display);text-transform:uppercase}
+select,input[type=text],textarea{font:inherit;color:var(--line);background:var(--night-2);border:0;box-shadow:inset 0 0 0 1.5px rgba(234,241,255,.2);border-radius:10px;padding:12px 14px;width:100%}
+select:focus,input[type=text]:focus,textarea:focus{outline:2px solid var(--ball);outline-offset:1px}
+.ticket{position:sticky;top:calc(env(safe-area-inset-top,0px) + 24px);background:var(--line);color:var(--night);border-radius:4px;padding:26px 24px;display:grid;gap:14px;
+  -webkit-mask:radial-gradient(circle 12px at 0 62%,transparent 98%,#000) ,radial-gradient(circle 12px at 100% 62%,transparent 98%,#000);-webkit-mask-composite:source-in;mask:radial-gradient(circle 12px at 0 62%,transparent 98%,#000),radial-gradient(circle 12px at 100% 62%,transparent 98%,#000);mask-composite:intersect}
+.ticket h3{font-size:1.9rem}
+.ticket dl{margin:0;display:grid;grid-template-columns:auto 1fr;gap:8px 16px;font-size:.92rem}
+.ticket dt{font:500 .7rem/1.6 var(--mono);letter-spacing:.1em;text-transform:uppercase;color:#4a5c84}
+.ticket dd{margin:0;text-align:right;font-weight:600}
+.ticket .total{display:flex;justify-content:space-between;align-items:baseline;border-top:2px dashed rgba(6,20,48,.25);padding-top:16px;margin-top:6px}
+.ticket .total strong{font:900 2.6rem/1 var(--display);font-variant-numeric:tabular-nums}
+.ticket .btn-dark{background:var(--night);color:var(--line);justify-content:center}
+.ticket textarea{background:#fff;color:var(--night);box-shadow:inset 0 0 0 1.5px rgba(6,20,48,.2);font-size:.88rem;min-height:120px;resize:vertical}
+.ticket .fine{font-size:.8rem;color:#3a4c74}
+.ticket .row{display:flex;gap:8px;flex-wrap:wrap}
+
+/* faq */
+.faq{display:grid;gap:0;max-width:880px}
+.faq details{border-top:1.5px solid rgba(234,241,255,.16)}
+.faq details:last-child{border-bottom:1.5px solid rgba(234,241,255,.16)}
+.faq summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;gap:16px;align-items:center;padding:22px 0;font:800 1.45rem/1.1 var(--display);text-transform:uppercase}
+.faq summary::-webkit-details-marker{display:none}
+.faq summary{text-transform:none;font-size:1.5rem}
+.faq summary::after{content:"+";flex:none;font:500 1.4rem/1 var(--mono);color:var(--muted)}
+.faq details[open] summary::after{content:"–"}
+.faq details p{color:var(--muted);padding:0 0 24px;max-width:64ch}
+
+footer{border-top:2px solid rgba(234,241,255,.14);padding-block:40px 56px;color:var(--muted);font-size:.88rem}
+footer .wrap{display:flex;flex-wrap:wrap;justify-content:space-between;gap:20px;align-items:center}
+
+@media (prefers-reduced-motion:reduce){
+  html{scroll-behavior:auto}
+  *,*::before,*::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}
+  .track{animation:none}
+}
+</style>
+</head>
+<body>
+
+<div class="progress" aria-hidden="true"><i></i><b></b></div>
+
+<header class="hero lit" id="top">
+  <div class="wrap">
+    <nav class="nav" aria-label="Main">
+      <a class="logo" href="#top" aria-label="Bandeja Lab home">
+        <svg viewBox="0 0 40 40" aria-hidden="true"><circle cx="17" cy="17" r="13" fill="none" stroke="#eaf1ff" stroke-width="3"/><g fill="#eaf1ff"><circle cx="12" cy="13" r="1.6"/><circle cx="18" cy="11" r="1.6"/><circle cx="22" cy="16" r="1.6"/><circle cx="13" cy="20" r="1.6"/><circle cx="19" cy="22" r="1.6"/></g><path d="M26 26 L36 36" stroke="#eaf1ff" stroke-width="4" stroke-linecap="round"/><circle cx="33" cy="9" r="5" fill="#dff54a"/></svg>
+        Bandeja Lab
+      </a>
+      <div class="nav-links">
+        <a href="#shots">Shots</a><a href="#level">Your level</a><a href="#programs">Programs</a><a href="#coaches">Coaches</a><a href="#faq">FAQ</a>
+      </div>
+      <a class="btn btn-ball magnet" href="#book">Book a session</a>
+    </nav>
+
+    <div class="hero-grid">
+      <div class="hero-copy">
+        <p class="eyebrow">Padel coaching · Bangkok</p>
+        <h1 aria-label="Play the glass.">
+          <span class="w" aria-hidden="true" data-split>Play</span>
+          <span class="w" aria-hidden="true" data-split>the</span>
+          <span class="w outline" aria-hidden="true"><span data-split>glass</span><span class="dot ch" style="--i:12">.</span></span>
+        </h1>
+        <p class="lede">We coach padel in Bangkok, mostly early mornings and after work. Groups of four, coaches from Spain, Argentina and Thailand, covered courts in Sukhumvit, Ari and Rama 9. Most people rally in their first hour. Using the glass takes a bit longer, and that's the part we're good at.</p>
+        <div class="hero-ctas">
+          <a class="btn btn-ball magnet" href="#book">Book a session</a>
+          <a class="btn btn-ghost" href="#level">Find your level</a>
+        </div>
+        <div class="hero-meta"><span>Rackets included for beginners</span><span>Sessions 07:00 and 17:00–22:30</span><span>English · Español · ไทย</span></div>
+      </div>
+
+      <div>
+        <div class="court-box" id="courtBox">
+          <canvas id="court" aria-label="Top-down padel court mini game. Press Play to control the left racket with your mouse, finger or arrow keys."></canvas>
+          <div class="toast" id="toast" role="status" aria-live="polite"></div>
+        </div>
+        <div class="hud">
+          <div class="board" aria-label="Scoreboard">
+            <div><small>GAMES</small><strong id="sGames">0–0</strong></div>
+            <div class="pts"><small id="sPtsLbl">POINTS</small><strong id="sPts">0–0</strong></div>
+            <div><small>RALLY</small><strong id="sRally">0</strong></div>
+            <div><small>BEST</small><strong id="sBest">0</strong></div>
+          </div>
+          <p class="glassmeter" id="glassNote">Demo rally. One bounce off your back glass is fine. <b>Two and the point is gone.</b></p>
+          <button class="btn btn-ball" id="playBtn" type="button">▶ Play the left side</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</header>
+
+<div class="marquee-wrap" aria-hidden="true">
+  <div class="marquee"><div class="track" id="track"></div></div>
+</div>
+
+<section class="sec lit" id="shots" aria-labelledby="shotsH">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="shotsH">The shots we teach</h2>
+      <p class="lede">Pick a shot and watch it on a full court. You're in white, the rivals in orange. Yellow rings are bounces, blue rings are the glass. Try the ball cam in slow-mo.</p>
+    </div>
+    <div class="shot-ui">
+      <div class="shot-list" id="shotList" aria-label="Choose a shot"></div>
+      <div class="shot-stage">
+        <div class="stage3d" id="stage3d">
+          <div class="cam-ui" role="group" aria-label="Camera">
+            <button type="button" data-cam="broadcast" aria-pressed="true">Broadcast</button>
+            <button type="button" data-cam="side" aria-pressed="false">Side</button>
+            <button type="button" data-cam="rival" aria-pressed="false">Rival view</button>
+            <button type="button" data-cam="ball" aria-pressed="false">Ball cam</button>
+            <button type="button" id="slowBtn" aria-pressed="false">Slow-mo</button>
+          </div>
+          <span class="stage-hint" id="stageHint">Drag to look around · double-click to reset</span>
+        </div>
+        <div class="side-view" id="side2d" hidden>
+          <svg viewBox="0 0 1000 330" id="sideSvg" role="img" aria-labelledby="shotName">
+            <defs>
+              <pattern id="mesh" width="10" height="10" patternUnits="userSpaceOnUse"><path d="M0 0L10 10M10 0L0 10" stroke="#a3b6dc" stroke-opacity=".35" stroke-width="1"/></pattern>
+              <pattern id="netp" width="6" height="6" patternUnits="userSpaceOnUse"><path d="M0 0H6M0 0V6" stroke="#eaf1ff" stroke-opacity=".5" stroke-width="1"/></pattern>
+              <filter id="glow" x="-50%" y="-50%" width="200%" height="200%"><feGaussianBlur stdDeviation="4" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+            </defs>
+            <rect x="0" y="280" width="1000" height="50" fill="#0a1d44"/>
+            <line x1="0" y1="280" x2="1000" y2="280" stroke="#eaf1ff" stroke-width="2"/>
+            <rect x="0" y="130" width="8" height="150" fill="#8adcff" fill-opacity=".35" stroke="#8adcff"/>
+            <rect x="0" y="80" width="8" height="50" fill="url(#mesh)" stroke="#a3b6dc" stroke-opacity=".5"/>
+            <rect x="992" y="130" width="8" height="150" fill="#8adcff" fill-opacity=".35" stroke="#8adcff"/>
+            <rect x="992" y="80" width="8" height="50" fill="url(#mesh)" stroke="#a3b6dc" stroke-opacity=".5"/>
+            <rect x="497" y="236" width="6" height="44" fill="url(#netp)"/>
+            <line x1="500" y1="236" x2="500" y2="280" stroke="#eaf1ff" stroke-width="2"/>
+            <line x1="490" y1="236" x2="510" y2="236" stroke="#eaf1ff" stroke-width="3"/>
+            <g font-family="JetBrains Mono, monospace" font-size="13" fill="#a3b6dc" id="ticks"></g>
+            <g font-family="JetBrains Mono, monospace" font-size="12" fill="#8adcff">
+              <text x="16" y="124">YOUR GLASS 3 m</text>
+              <text x="984" y="124" text-anchor="end">RIVAL GLASS</text>
+              <text x="500" y="226" text-anchor="middle" fill="#eaf1ff">NET 0.88 m</text>
+            </g>
+            <g id="players"></g>
+            <path id="shotPath" d="" fill="none" stroke="#dff54a" stroke-width="3" stroke-linecap="round" stroke-dasharray="6 9" opacity=".25"/>
+            <path id="shotPathLive" d="" fill="none" stroke="#dff54a" stroke-width="3" stroke-linecap="round"/>
+            <g id="marks"></g>
+            <ellipse id="ballShadow" cx="-50" cy="283" rx="10" ry="3" fill="#000" fill-opacity=".4"/>
+            <circle id="sideBall" cx="-50" cy="-50" r="8" fill="#dff54a"/>
+          </svg>
+        </div>
+        <div class="shot-info" aria-live="polite">
+          <div style="display:grid;gap:12px">
+            <h3 id="shotName">Bandeja</h3>
+            <p id="shotWhat" style="color:var(--muted)"></p>
+            <div style="display:flex;gap:8px;flex-wrap:wrap"><span class="tag" id="shotLvl"></span><button class="tag" id="replay" type="button" style="border:0;cursor:pointer;font-family:var(--mono)">↻ Replay</button></div>
+          </div>
+          <p class="cue" id="shotCue"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec lit" id="level" aria-labelledby="levelH">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="levelH">What's your level?</h2>
+      <p class="lede">Bangkok booking apps rate players from 0 to 7. Answer nine questions about what you actually do on court and we'll estimate your level, show what's holding it back, and point you to the right program. Your coach confirms it in the first session.</p>
+    </div>
+    <div class="level-ui">
+      <form id="levelForm" onsubmit="return false"></form>
+      <div class="level-side">
+      <aside class="gauge-card" aria-live="polite">
+        <svg viewBox="0 0 240 150" aria-hidden="true">
+          <path d="M20 124 A100 100 0 0 1 220 124" fill="none" stroke="rgba(234,241,255,.1)" stroke-width="14" stroke-linecap="round"/>
+          <path id="gArc" d="M20 124 A100 100 0 0 1 220 124" fill="none" stroke="url(#gg)" stroke-width="14" stroke-linecap="round" pathLength="100" stroke-dasharray="100" stroke-dashoffset="54"/>
+          <defs><linearGradient id="gg" x1="0" x2="1"><stop offset="0" stop-color="#8adcff"/><stop offset="1" stop-color="#dff54a"/></linearGradient></defs>
+          <g id="gTicks" font-family="JetBrains Mono, monospace" font-size="10" fill="#a3b6dc" text-anchor="middle"></g>
+          <g id="gNeedle"><line x1="120" y1="124" x2="120" y2="44" stroke="#eaf1ff" stroke-width="3" stroke-linecap="round"/><circle cx="120" cy="124" r="7" fill="#eaf1ff"/></g>
+        </svg>
+        <div class="gauge-txt">
+          <span class="lvl-band" id="lvlBand">Improver</span>
+          <div class="lvl-num" id="lvlNum">2.9</div>
+          <span class="lvl-range" id="lvlRange"></span>
+          <div class="lvl-prog" id="lvlProg">Glass &amp; Grip</div>
+        </div>
+        <div class="lvl-extra">
+          <p id="lvlCap" class="cap" hidden></p>
+          <p id="lvlGap"></p>
+          <p class="lvl-note" id="lvlNote"></p>
+          <a class="btn btn-ball" href="#book" id="lvlBook">Book this level</a>
+        </div>
+      </aside>
+      <ol class="ladder" id="ladder" aria-label="The 0 to 7 level scale"></ol>
+      <p class="ladder-note">Bands follow the 0–7 scale used by most padel booking apps. Tap a band to see what it looks like on court.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec lit" id="programs" aria-labelledby="progH">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="progH">Programs and prices</h2>
+      <p class="lede">Each program runs on the same weekly slot with the same group, so you train with people at your level. Court fees, balls and water are included.</p>
+    </div>
+    <div class="plist" id="progCards">
+      <article class="prow" data-min="0" data-max="1.49" data-focus="Basics and first rallies">
+        <div><h3>First Rally<span class="you">YOUR LEVEL</span></h3><p>Grip, ready position, forehand and backhand, and what the ball does off the glass. No experience needed, rackets on us.</p></div>
+        <span class="lv">Level<b>0 – 1.5</b></span>
+        <span class="fm">4 × 60 min<b>Group of 4</b></span>
+        <span class="pr">฿2,400<small>per person</small></span>
+        <a class="btn btn-ghost" href="#book" data-pick>Book</a>
+      </article>
+      <article class="prow" data-min="1.5" data-max="2.99" data-focus="Walls and glass">
+        <div><h3>Glass &amp; Grip<span class="you">YOUR LEVEL</span></h3><p>Back-glass and side-glass exits, the lob, the volley, and where to stand as a pair.</p></div>
+        <span class="lv">Level<b>1.5 – 3</b></span>
+        <span class="fm">6 × 90 min<b>Group of 4</b></span>
+        <span class="pr">฿4,500<small>per person</small></span>
+        <a class="btn btn-ghost" href="#book" data-pick>Book</a>
+      </article>
+      <article class="prow" data-min="3" data-max="4.49" data-focus="Overheads: bandeja and víbora">
+        <div><h3>Net Pressure<span class="you">YOUR LEVEL</span></h3><p>Bandeja, víbora and chiquita. Taking the net, keeping it, and moving with your partner. Two sessions filmed.</p></div>
+        <span class="lv">Level<b>3 – 4.5</b></span>
+        <span class="fm">6 × 90 min<b>Group of 4</b></span>
+        <span class="pr">฿5,100<small>per person</small></span>
+        <a class="btn btn-ghost" href="#book" data-pick>Book</a>
+      </article>
+      <article class="prow" data-min="4.5" data-max="7" data-focus="Match tactics and video">
+        <div><h3>Match Lab<span class="you">YOUR LEVEL</span></h3><p>Bajadas, por tres, serve patterns and game plans, plus a full video review of one of your league matches.</p></div>
+        <span class="lv">Level<b>4.5 +</b></span>
+        <span class="fm">4 × 90 min<b>2 players, 1 coach</b></span>
+        <span class="pr">฿7,200<small>per person</small></span>
+        <a class="btn btn-ghost" href="#book" data-pick>Book</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="sec lit" id="coaches" aria-labelledby="coachH">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="coachH">Coaches</h2>
+      <p class="lede">You keep the same coach for a whole program. If you'd rather train with someone specific, mention it when you book.</p>
+    </div>
+    <div class="cards" id="coachCards"></div>
+  </div>
+</section>
+
+<section class="sec lit" id="book" aria-labelledby="bookH">
+  <div class="wrap">
+    <div class="sec-head">
+      <h2 id="bookH">Book a session</h2>
+      <p class="lede">Choose a format, day and time. We prepare your request as a message you send to us on LINE, and a coach confirms within the hour between 08:00 and 22:00.</p>
+    </div>
+    <div class="book-ui">
+      <div>
+        <div class="field"><span>Format</span><div class="chips" id="fmtChips"></div></div>
+        <div class="field"><span>Length</span><div class="chips" id="durChips"></div></div>
+        <div class="field"><span>Day</span><div class="chips" id="dayChips"></div></div>
+        <div class="field"><span>Time · Bangkok</span><div class="chips" id="timeChips"></div></div>
+        <label class="field" for="bkFocus"><span>Focus</span>
+          <select id="bkFocus">
+            <option>Coach decides</option>
+            <option>Basics and first rallies</option>
+            <option>Walls and glass</option>
+            <option>Overheads: bandeja and víbora</option>
+            <option>Match tactics and video</option>
+          </select>
+        </label>
+        <label class="field" for="bkName"><span>Your name</span><input type="text" id="bkName" placeholder="e.g. Nok" autocomplete="name"></label>
+      </div>
+      <aside class="ticket" aria-live="polite">
+        <h3>Session request</h3>
+        <dl>
+          <dt>Format</dt><dd id="tFmt"></dd>
+          <dt>Day</dt><dd id="tDay"></dd>
+          <dt>Time</dt><dd id="tTime"></dd>
+          <dt>Focus</dt><dd id="tFocus"></dd>
+          <dt>Price</dt><dd id="tPP"></dd>
+        </dl>
+        <div class="total"><span class="mono" style="font-size:.74rem;letter-spacing:.1em">TOTAL · COURT INCLUDED</span><strong id="tTotal"></strong></div>
+        <button class="btn btn-dark" type="button" id="prepBtn">Prepare my LINE message</button>
+        <div id="msgBox" hidden style="display:grid;gap:10px">
+          <label for="bkMsg" class="mono" style="font-size:.72rem;letter-spacing:.1em">COPY THIS AND SEND IT TO <b>@bandejalab</b> ON LINE</label>
+          <textarea id="bkMsg" readonly></textarea>
+          <div class="row"><button class="btn btn-dark" type="button" id="copyBtn" style="padding:.7em 1.1em;font-size:.84rem">Copy message</button><span class="fine" id="copyNote" role="status"></span></div>
+        </div>
+        <p class="fine">Free cancellation up to 24 hours before. Rain doesn't cancel: all our courts are covered.</p>
+      </aside>
+    </div>
+  </div>
+</section>
+
+<section class="sec lit" id="faq" aria-labelledby="faqH">
+  <div class="wrap">
+    <div class="sec-head"><h2 id="faqH">Before your first session</h2></div>
+    <div class="faq">
+      <details open><summary>I've never played. Is that a problem?</summary><p>No. First Rally is built for people who have never held a padel racket. Most players can keep a rally going by the end of the first hour. We lend rackets, and if you play tennis or squash you'll progress faster.</p></details>
+      <details><summary>What should I wear?</summary><p>Light sports clothes and court shoes with a herringbone or omni sole. Running shoes slip on the sand-filled turf and are the most common cause of rolled ankles.</p></details>
+      <details><summary>What happens when it rains?</summary><p>Nothing. Every court we use is covered or indoor, so the monsoon months from May to October don't cancel sessions.</p></details>
+      <details><summary>Isn't it too hot?</summary><p>We run sessions at 07:00 and from 17:00 to 22:30 to avoid the midday heat. Cold water and towels are at every court.</p></details>
+      <details><summary>Can I come on my own?</summary><p>Yes. Pick a Clinic slot and we'll place you with three players at your level.</p></details>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span class="logo" style="font-size:1.2rem">Bandeja Lab</span>
+    <span>Covered courts in Sukhumvit, Ari and Rama 9 · LINE <b style="color:var(--line)">@bandejalab</b></span>
+    <a href="#top">Back to the court ↑</a>
+    <span style="flex-basis:100%;font-size:.78rem;opacity:.75">Concept site. The brand, coaches, prices and LINE ID are placeholders.</span>
+  </div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+(function(){
+"use strict";
+const reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+const finePointer = matchMedia('(pointer: fine)').matches;
+const $ = (s, r=document) => r.querySelector(s);
+const $$ = (s, r=document) => Array.from(r.querySelectorAll(s));
+const clamp = (v,a,b) => Math.max(a, Math.min(b, v));
+const thb = n => '฿' + n.toLocaleString('en-US');
+
+/* ---------- headline split ---------- */
+let ci = 0;
+$$('[data-split]').forEach(el => {
+  const t = el.textContent; el.textContent = '';
+  for (const c of t){ const s = document.createElement('span'); s.className='ch'; s.style.setProperty('--i', ci++); s.textContent=c; el.appendChild(s); }
+});
+
+/* ---------- marquee ---------- */
+const terms = ['Bandeja','Víbora','Bajada','Chiquita','Globo','Por tres','Salida de pared','Remate','Dejada','Contrapared','Punto de oro'];
+const track = $('#track');
+track.innerHTML = [...terms, ...terms].map(t => `<span>${t}</span>`).join('');
+
+/* ---------- progress + floodlight ---------- */
+const prog = $('.progress');
+let ticking = false;
+function onScroll(){
+  if (ticking) return; ticking = true;
+  requestAnimationFrame(() => {
+    const h = document.documentElement.scrollHeight - innerHeight;
+    prog.style.setProperty('--p', (h > 0 ? (scrollY / h * 100) : 0).toFixed(2) + '%');
+    ticking = false;
+  });
+}
+addEventListener('scroll', onScroll, {passive:true}); onScroll();
+
+/* ---------- magnetic buttons + tilt ---------- */
+function bindMagnet(el){
+  if (!finePointer || reduce) return;
+  el.addEventListener('pointermove', e => {
+    const r = el.getBoundingClientRect();
+    const x = (e.clientX - r.left - r.width/2) * .25, y = (e.clientY - r.top - r.height/2) * .35;
+    el.style.transform = `translate(${x}px,${y}px)`;
+  });
+  el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+}
+function bindTilt(el){
+  if (!finePointer || reduce) return;
+  el.addEventListener('pointermove', e => {
+    const r = el.getBoundingClientRect();
+    const px = (e.clientX - r.left) / r.width - .5, py = (e.clientY - r.top) / r.height - .5;
+    el.style.transform = `perspective(900px) rotateY(${px*8}deg) rotateX(${-py*8}deg) translateY(-4px)`;
+  });
+  el.addEventListener('pointerleave', () => { el.style.transform = ''; });
+}
+
+/* ---------- counters ---------- */
+if (!reduce && 'IntersectionObserver' in window){
+  const io = new IntersectionObserver(ents => ents.forEach(en => {
+    if (!en.isIntersecting) return; io.unobserve(en.target);
+    const el = en.target, to = +el.dataset.to, t0 = performance.now(), d = 1100;
+    (function step(t){ const k = Math.min(1,(t-t0)/d), e = 1 - Math.pow(1-k,3); el.textContent = Math.round(to*e); if (k<1) requestAnimationFrame(step); })(t0);
+  }), {threshold:.6});
+  $$('.count').forEach(el => io.observe(el));
+}
+
+/* =====================================================
+   HERO MINI GAME — top-down court, 1 unit = 5 cm (400 × 200)
+   ===================================================== */
+(function game(){
+  const cv = $('#court'), box = $('#courtBox'), ctx = cv.getContext('2d');
+  const W = 400, H = 200, BR = 4, PR = 13, BASE = 175, MAX = 440;
+  const toastEl = $('#toast'), playBtn = $('#playBtn'), note = $('#glassNote');
+  const elG = $('#sGames'), elP = $('#sPts'), elPL = $('#sPtsLbl'), elR = $('#sRally'), elB = $('#sBest');
+  let s = 1;
+  const ball = {x:60, y:100, vx:0, vy:0, speed:BASE};
+  const mk = side => ({side, x: side==='me'?70:330, y:100, vx:0, vy:0, cool:0, err:0, max:235});
+  const me = mk('me'), ai = mk('ai');
+  let trail=[], sparks=[], flashes=[], glass={me:0, ai:0}, rally=0, best=0;
+  let state='wait', timer=.8, nextServer='me', playing=false, target=null, visible=true, last=0, running=false, shake=0, toastT=0;
+  let pts={me:0, ai:0}, games={me:0, ai:0};
+  try { best = +localStorage.getItem('bl-best') || 0; } catch(e){}
+  elB.textContent = best;
+
+  function resize(){
+    const r = cv.getBoundingClientRect(); if (!r.width) return;
+    const dpr = Math.min(2, devicePixelRatio || 1);
+    cv.width = Math.round(r.width * dpr); cv.height = Math.round(r.width / 2 * dpr);
+    s = cv.width / W; draw();
+  }
+  new ResizeObserver(resize).observe(cv);
+
+  const names = () => playing ? {me:'You', ai:'Rival'} : {me:'Left pair', ai:'Right pair'};
+  function toast(big, small, dur=1.3){ toastEl.innerHTML = big + (small ? `<small>${small}</small>` : ''); toastEl.classList.add('on'); toastT = dur; }
+  const rnd = (k) => (Math.random() - .5) * k;
+
+  function serve(from){
+    const dir = from==='me' ? 1 : -1;
+    ball.x = from==='me' ? 40 : 360; ball.y = 50 + Math.random()*100; ball.speed = BASE;
+    const a = rnd(.8);
+    ball.vx = Math.cos(a)*BASE*dir; ball.vy = Math.sin(a)*BASE;
+    glass = {me:0, ai:0}; rally = 0; trail = []; state = 'live';
+    me.err = rnd(10); ai.err = rnd(10); hud();
+  }
+
+  function predictY(x){
+    if (!ball.vx) return 100;
+    const t = (x - ball.x) / ball.vx; if (t < 0) return 100;
+    const span = H - 2*BR; let y = ball.y + ball.vy*t - BR;
+    y = ((y % (2*span)) + 2*span) % (2*span); if (y > span) y = 2*span - y;
+    return y + BR;
+  }
+  function steer(p, tx, ty, dt, max){
+    const minX = p.side==='me' ? PR : 200+PR+4, maxX = p.side==='me' ? 200-PR-4 : W-PR;
+    tx = clamp(tx, minX, maxX); ty = clamp(ty, PR, H-PR);
+    let dx = tx-p.x, dy = ty-p.y; const d = Math.hypot(dx,dy), st = max*dt;
+    if (d > st){ dx *= st/d; dy *= st/d; }
+    p.vx = dx/dt; p.vy = dy/dt; p.x += dx; p.y += dy;
+  }
+  function autoMove(p, dt){
+    const dir = p.side==='me' ? 1 : -1, home = p.side==='me' ? 70 : 330;
+    const inHalf = p.side==='me' ? ball.x < 200 : ball.x > 200;
+    const coming = ball.vx*dir < 0;
+    let tx = home, ty = 100;
+    if (state === 'live'){
+      if (inHalf){ tx = ball.x - dir*10; ty = ball.y + p.err; }
+      else if (coming){ tx = home; ty = predictY(home) + p.err; }
+      else { ty = 100 + (ball.y-100)*.3; }
+    }
+    steer(p, tx, ty, dt, p.max);
+  }
+  function hit(p, dir){
+    if (p.cool > 0) return;
+    const dx = ball.x-p.x, dy = ball.y-p.y, d = Math.hypot(dx,dy);
+    if (d > PR+BR) return;
+    const ox = d ? dx/d : dir, oy = d ? dy/d : 0;
+    ball.speed = Math.min(MAX, ball.speed*1.05 + 6);
+    let vx = ox*ball.speed + p.vx*.12, vy = oy*ball.speed + p.vy*.3;
+    if (vx*dir < ball.speed*.45) vx = dir*ball.speed*.45;
+    const n = Math.hypot(vx,vy); ball.vx = vx/n*ball.speed; ball.vy = vy/n*ball.speed;
+    ball.x = p.x + ox*(PR+BR+.5); ball.y = p.y + oy*(PR+BR+.5);
+    p.cool = .2; rally++; glass = {me:0, ai:0};
+    const other = p===me ? ai : me; other.err = rnd(8 + ball.speed*.085);
+    burst(ball.x, ball.y, p===me ? '#eaf1ff' : '#ff7d4d', 12);
+    shake = Math.min(3, ball.speed/160);
+    if (playing && rally > best){ best = rally; try{ localStorage.setItem('bl-best', best); }catch(e){} }
+    hud();
+  }
+  function burst(x, y, c, n){ for (let i=0;i<n;i++){ const a=Math.random()*Math.PI*2, v=40+Math.random()*120; sparks.push({x,y,vx:Math.cos(a)*v,vy:Math.sin(a)*v,t:1,c}); } }
+  function point(w, why){
+    state = 'point'; timer = 1.5; nextServer = w;
+    const l = w==='me' ? 'ai' : 'me', golden = pts.me===3 && pts.ai===3;
+    let big;
+    if (pts[w] === 3){ games[w]++; pts = {me:0, ai:0}; big = (golden ? 'Golden point · ' : '') + 'Game ' + names()[w]; }
+    else { pts[w]++; big = 'Point ' + names()[w]; }
+    toast(big, why);
+    burst(ball.x, ball.y, '#dff54a', 26); shake = 5; hud();
+  }
+  const LBL = ['0','15','30','40'];
+  function hud(){
+    elG.textContent = games.me + '–' + games.ai;
+    const golden = pts.me===3 && pts.ai===3;
+    elP.textContent = LBL[pts.me] + '–' + LBL[pts.ai];
+    elPL.textContent = golden ? 'GOLDEN PT' : 'POINTS';
+    elR.textContent = rally; elB.textContent = best;
+    if (playing){
+      note.innerHTML = glass.me === 1 ? '<b>One off your glass. Get it now.</b>' : 'Move to hit. One bounce off your back glass is fine. <b>Two and the point is gone.</b>';
+    }
+  }
+  function flash(kind, x, y){ flashes.push({kind, x, y, t:1}); if (kind==='back') burst(x, y, '#8adcff', 8); }
+
+  function update(dt){
+    me.cool -= dt; ai.cool -= dt;
+    if (playing && target) steer(me, target.x, target.y, dt, 900); else autoMove(me, dt);
+    autoMove(ai, dt);
+    if (toastT > 0){ toastT -= dt; if (toastT <= 0) toastEl.classList.remove('on'); }
+    if (state !== 'live'){ timer -= dt; if (timer <= 0) serve(nextServer); fx(dt); return; }
+    const px = ball.x;
+    ball.x += ball.vx*dt; ball.y += ball.vy*dt;
+    if (ball.y < BR){ ball.y = BR; ball.vy = Math.abs(ball.vy); flash('side', ball.x, 0); }
+    if (ball.y > H-BR){ ball.y = H-BR; ball.vy = -Math.abs(ball.vy); flash('side', ball.x, H); }
+    if (ball.x < BR){ ball.x = BR; ball.vx = Math.abs(ball.vx); flash('back', 0, ball.y); glass.me++; hud(); if (glass.me >= 2){ point('ai', 'Two bounces off the left glass'); fx(dt); return; } }
+    if (ball.x > W-BR){ ball.x = W-BR; ball.vx = -Math.abs(ball.vx); flash('back', W, ball.y); glass.ai++; if (glass.ai >= 2){ point('me', 'Two bounces off the right glass'); fx(dt); return; } }
+    if ((px-200)*(ball.x-200) < 0) glass = {me:0, ai:0};
+    hit(me, 1); hit(ai, -1);
+    trail.push({x:ball.x, y:ball.y}); if (trail.length > 18) trail.shift();
+    fx(dt);
+  }
+  function fx(dt){
+    flashes.forEach(f => f.t -= dt*2.4); flashes = flashes.filter(f => f.t > 0);
+    sparks.forEach(p => { p.x += p.vx*dt; p.y += p.vy*dt; p.vx *= .92; p.vy *= .92; p.t -= dt*1.8; }); sparks = sparks.filter(p => p.t > 0);
+    shake *= .85;
+  }
+
+  function line(x1,y1,x2,y2){ ctx.beginPath(); ctx.moveTo(x1,y1); ctx.lineTo(x2,y2); ctx.stroke(); }
+  function dot(x,y,r){ ctx.beginPath(); ctx.arc(x,y,r,0,Math.PI*2); ctx.fill(); }
+  function racket(p, c, dir){
+    ctx.save(); ctx.strokeStyle = c; ctx.lineCap = 'round';
+    ctx.lineWidth = 4; line(p.x - dir*PR, p.y, p.x - dir*PR*1.75, p.y);
+    ctx.fillStyle = 'rgba(234,241,255,.10)'; dot(p.x, p.y, PR);
+    ctx.shadowColor = c; ctx.shadowBlur = 10; ctx.lineWidth = 2.6;
+    ctx.beginPath(); ctx.arc(p.x, p.y, PR, 0, Math.PI*2); ctx.stroke(); ctx.shadowBlur = 0;
+    ctx.fillStyle = c; ctx.globalAlpha = .55;
+    for (let i=-1;i<=1;i++) for (let j=-1;j<=1;j++) if (Math.abs(i)+Math.abs(j) < 2 || (i&&j)) dot(p.x+i*5, p.y+j*5, 1.2);
+    ctx.restore();
+  }
+  function draw(){
+    const sx = shake ? rnd(shake) : 0, sy = shake ? rnd(shake) : 0;
+    ctx.setTransform(s,0,0,s,sx*s,sy*s);
+    const g = ctx.createLinearGradient(0,0,0,H); g.addColorStop(0,'#1a52b4'); g.addColorStop(1,'#123f94');
+    ctx.fillStyle = g; ctx.fillRect(-10,-10,W+20,H+20);
+    ctx.fillStyle = 'rgba(255,255,255,.028)'; for (let x=0;x<W;x+=40) ctx.fillRect(x,0,20,H);
+    const fl = ctx.createRadialGradient(ball.x, ball.y, 0, ball.x, ball.y, 90);
+    fl.addColorStop(0,'rgba(223,245,74,.10)'); fl.addColorStop(1,'rgba(223,245,74,0)'); ctx.fillStyle = fl; ctx.fillRect(0,0,W,H);
+    ctx.strokeStyle = 'rgba(234,241,255,.85)'; ctx.lineWidth = 1.3;
+    line(61,0,61,H); line(339,0,339,H); line(61,100,339,100);
+    ctx.strokeStyle = 'rgba(234,241,255,.95)'; ctx.lineWidth = 2.4; ctx.setLineDash([3,2]); line(200,0,200,H); ctx.setLineDash([]);
+    ctx.fillStyle = '#eaf1ff'; dot(200,2,2.4); dot(200,H-2,2.4);
+    ctx.save(); ctx.shadowColor = '#8adcff'; ctx.shadowBlur = 8; ctx.lineWidth = 3;
+    ctx.strokeStyle = glass.me===1 ? '#ff7d4d' : 'rgba(138,220,255,.9)'; line(1.5,0,1.5,H);
+    ctx.strokeStyle = glass.ai===1 ? '#ff7d4d' : 'rgba(138,220,255,.9)'; line(W-1.5,0,W-1.5,H);
+    ctx.strokeStyle = 'rgba(138,220,255,.9)';
+    line(0,1.5,80,1.5); line(320,1.5,W,1.5); line(0,H-1.5,80,H-1.5); line(320,H-1.5,W,H-1.5);
+    ctx.restore();
+    ctx.strokeStyle = 'rgba(234,241,255,.35)'; ctx.lineWidth = 2; ctx.setLineDash([2,3]);
+    line(80,1.5,320,1.5); line(80,H-1.5,320,H-1.5); ctx.setLineDash([]);
+    for (const f of flashes){
+      ctx.save(); ctx.globalAlpha = f.t; ctx.strokeStyle = '#effcff'; ctx.shadowColor = '#8adcff'; ctx.shadowBlur = 20; ctx.lineWidth = 5;
+      if (f.kind === 'back'){ const x = f.x > 0 ? W-1.5 : 1.5; line(x, f.y-34*(2-f.t), x, f.y+34*(2-f.t)); }
+      else { const y = f.y > 0 ? H-1.5 : 1.5; line(f.x-28, y, f.x+28, y); }
+      ctx.restore();
+    }
+    for (let i=0;i<trail.length;i++){ const k = i/trail.length; ctx.globalAlpha = k*.45; ctx.fillStyle = '#dff54a'; dot(trail[i].x, trail[i].y, BR*k); }
+    ctx.globalAlpha = 1;
+    racket(me, '#eaf1ff', 1); racket(ai, '#ff7d4d', -1);
+    ctx.save(); ctx.globalAlpha = state==='live' || state==='wait' ? 1 : .35; ctx.shadowColor = '#dff54a'; ctx.shadowBlur = 16; ctx.fillStyle = '#dff54a'; dot(ball.x, ball.y, BR); ctx.restore();
+    for (const p of sparks){ ctx.globalAlpha = Math.max(0,p.t); ctx.fillStyle = p.c; dot(p.x, p.y, 1.4*p.t+.3); }
+    ctx.globalAlpha = 1;
+  }
+  function frame(t){
+    if (!running) return;
+    requestAnimationFrame(frame);
+    if (!visible || document.hidden){ last = 0; return; }
+    const dt = clamp((t - (last || t)) / 1000, .004, .033); last = t;
+    update(dt); draw();
+  }
+  function start(){ if (running) return; running = true; last = 0; requestAnimationFrame(frame); }
+
+  new IntersectionObserver(e => { visible = e[0].isIntersecting; }, {threshold:.05}).observe(cv);
+
+  function toCourt(e){ const r = cv.getBoundingClientRect(); return {x:(e.clientX-r.left)/r.width*W, y:(e.clientY-r.top)/r.height*H}; }
+  cv.addEventListener('pointermove', e => { if (playing) target = toCourt(e); });
+  cv.addEventListener('pointerdown', e => { if (playing){ target = toCourt(e); cv.setPointerCapture?.(e.pointerId); } });
+  addEventListener('keydown', e => {
+    if (!playing) return;
+    const k = {ArrowUp:[0,-14],ArrowDown:[0,14],ArrowLeft:[-14,0],ArrowRight:[14,0]}[e.key];
+    if (!k) return; e.preventDefault();
+    target = target || {x:me.x, y:me.y};
+    target = {x:clamp(target.x+k[0],0,200), y:clamp(target.y+k[1],0,H)};
+  });
+
+  playBtn.addEventListener('click', () => {
+    playing = !playing;
+    box.classList.toggle('playing', playing);
+    target = null;
+    if (playing){
+      pts = {me:0, ai:0}; games = {me:0, ai:0};
+      playBtn.textContent = '■ Stop'; toast('Your serve to return', 'Move over the court to steer the white racket', 1.6);
+      state = 'point'; timer = 1.2; nextServer = 'ai'; ai.max = 245; start();
+    } else {
+      playBtn.textContent = '▶ Play the left side';
+      note.innerHTML = 'Demo rally. One bounce off your back glass is fine. <b>Two and the point is gone.</b>';
+      pts = {me:0, ai:0}; games = {me:0, ai:0}; ai.max = 235;
+      if (reduce){ running = false; }
+    }
+    hud();
+  });
+
+  resize();
+  if (reduce){ draw(); note.innerHTML = 'Press Play to rally. One bounce off your back glass is fine. <b>Two and the point is gone.</b>'; }
+  else { state = 'point'; timer = .6; start(); }
+})();
+
+/* =====================================================
+   SHOT LIBRARY — side view, 50 px = 1 m, ground at y=280
+   ===================================================== */
+(function shots(){
+  const SHOTS = [
+    {k:'bandeja', n:'Bandeja', tr:'“the tray”', lvl:'From level 2.5', you:330, riv:[640,880],
+     d:'M330,140 Q540,80 740,280 Q860,170 992,215 Q950,250 915,280', m:[[740,280],[992,215],[915,280]],
+     what:'A sliced overhead hit from mid-court when a lob goes over you. It lands mid-to-deep and comes off the glass slowly, so you have time to hold the net. Its job is to keep your position, not to win the point.',
+     cue:'Open racket face, contact in front of your shoulder, finish across your body. The ball should land deep and die low off the glass.'},
+    {k:'vibora', n:'Víbora', tr:'“the viper”', lvl:'From level 3.5', you:330, riv:[640,880],
+     d:'M330,128 Q600,160 880,280 Q940,255 992,258 Q972,272 960,280', m:[[880,280],[992,258],[960,280]],
+     what:'A faster, more aggressive bandeja with heavy side-spin. It bounces much closer to the glass than a bandeja, so it comes off low and fast and barely sits up.',
+     cue:'Contact further to the side of your body and brush across the ball. Think of slicing it, not hitting through it.'},
+    {k:'bajada', n:'Bajada', tr:'“coming down”', lvl:'From level 4', you:190, riv:[600,820],
+     d:'M650,200 Q300,0 140,280 Q60,180 8,165 Q90,120 190,150 Q470,170 760,280', m:[[140,280],[8,165],[190,150],[760,280]],
+     what:'Let the deep lob pass, bounce and come off your back glass, then attack it on the way out. Turns a defensive moment into a smash.',
+     cue:'Turn your shoulders early, let the glass do the work, and hit through the ball once it drops to shoulder height.'},
+    {k:'chiquita', n:'Chiquita', tr:'“the little one”', lvl:'From level 2', you:150, riv:[620,700],
+     d:'M182,250 Q400,150 590,280', m:[[590,280]],
+     what:'A soft, low ball that lands at the feet of rivals standing at the net. They have to hit up, which gives you the net.',
+     cue:'Short swing, still shoulders, aim to just clear the net. Follow it forward the moment it leaves your racket.'},
+    {k:'globo', n:'Globo', tr:'the lob', lvl:'From level 1', you:172, riv:[600,660],
+     d:'M200,250 Q540,-170 880,280 Q950,200 992,180 Q975,240 965,280', m:[[880,280],[992,180],[965,280]],
+     what:'The most important shot in padel. Pushes the pair at the net back to their glass so you can take the net yourselves.',
+     cue:'Lift from low to high with a firm wrist. Aim for the last metre before their back glass.'},
+    {k:'portres', n:'Por tres', tr:'“by three”', lvl:'From level 5', you:450, riv:[760,880],
+     d:'M470,92 L720,280 Q900,130 992,150 Q900,60 770,22', m:[[720,280],[992,150]], out:[770,14,'OUT OVER THE SIDE WALL'],
+     what:'A flat, heavy smash that bounces, hits the back glass and flies out over the side wall. Nobody gets it back from inside the court.',
+     cue:'Hit flat and hard from close to the net, aiming at the back third toward a side wall so it kicks off the glass and out.'},
+  ];
+  SHOTS.push({k:'porcuatro', n:'Por cuatro', tr:'“by four”', lvl:'From level 5', you:450, riv:[760,880],
+     d:'M470,92 L700,280 Q850,90 1000,10', m:[[700,280]], out:[985,34,'OUT OVER THE BACK FENCE'],
+     what:'A smash that bounces and flies straight out over the 4 m back fence. Like the por tres, nobody returns it from inside the court.',
+     cue:'Hit flat through the middle of the court with your whole body behind it, from close to the net.'});
+
+  /* 3D paths, metres. x runs along the court (you at negative x, net at 0, glass at ±10), z across (±5), y up.
+     Each segment: [x, y, z, extra arc height, seconds, what happens at the end]. */
+  const P3 = {
+    bandeja:{start:[-3.4,2.8,1.2], segs:[[4.8,0,-0.8,.6,1.0,'bounce'],[9.9,1.3,-1.4,.9,.55,'glass'],[8.2,0,-1.6,.3,.45,'bounce'],[7.4,0,-1.7,.12,.35,'end']], you:[-3.6,1.0], partner:[-3.8,-2.6], riv:[[8.6,-1.5],[7.8,2.2]]},
+    vibora:{start:[-3.4,2.7,1.5], segs:[[7.8,0,3.6,.3,.7,'bounce'],[9.0,.55,4.9,.12,.18,'glass'],[9.9,.35,4.3,.05,.14,'glass'],[9.5,0,3.9,.05,.15,'bounce'],[9.0,0,3.6,.04,.25,'end']], you:[-3.6,1.3], partner:[-3.6,-2.4], riv:[[8.4,-1.4],[8.6,2.2]]},
+    bajada:{start:[6,1.2,-1], segs:[[-7.4,0,.5,5.5,1.5,'bounce'],[-9.9,1.9,.8,1.0,.4,'glass'],[-8.2,1.6,.9,.45,.4,'contact'],[4.5,0,-2,.6,.55,'bounce'],[9.9,1.0,-3,.7,.45,'glass'],[8.6,0,-3.2,.3,.4,'end']], you:[-8.5,.15], rkY:1.6, partner:[-4,-2], riv:[[6.2,-1.2],[3.5,2.2]]},
+    chiquita:{start:[-5.5,.7,-1], segs:[[1.6,0,1.2,1.2,1.0,'bounce'],[2.6,.28,1.4,.3,.35,'end']], you:[-5.8,-1.4], partner:[-6,2], riv:[[3.0,1.75],[3.0,-2]]},
+    globo:{start:[-6,.7,0], segs:[[8.6,0,1,6.5,2.0,'bounce'],[9.9,1.6,1.1,.8,.45,'glass'],[9.3,0,1.2,.4,.4,'bounce'],[8.8,0,1.25,.15,.3,'end']], you:[-6.3,-.4], partner:[-6,2.6], riv:[[3,-2],[3,2]]},
+    portres:{start:[-1.5,3.0,-.5], segs:[[5,0,2.2,0,.32,'bounce'],[9.9,2.4,3.6,.6,.35,'glass'],[6.4,5.0,7.5,.6,.6,'out']], you:[-1.8,-.9], partner:[-3,2], riv:[[7.5,-1],[8,2.5]], out:'OVER THE SIDE WALL · POR TRES'},
+    porcuatro:{start:[-1.5,3.0,.3], segs:[[5.5,0,.5,0,.3,'bounce'],[11.6,5.2,.6,1.5,.65,'out']], you:[-1.8,0], partner:[-3.2,-2.4], riv:[[7.6,-1.6],[8.2,2]], out:'OVER THE BACK FENCE · POR CUATRO'},
+  };
+
+  function build3D(){
+    const T = window.THREE, stage = $('#stage3d');
+    if (!T) return null;
+    let renderer;
+    try { renderer = new T.WebGLRenderer({antialias:true}); } catch(e){ return null; }
+    if (!renderer.getContext()) return null;
+    renderer.setPixelRatio(Math.min(2, devicePixelRatio || 1));
+    renderer.shadowMap.enabled = true; renderer.shadowMap.type = T.PCFSoftShadowMap;
+    const cvs = renderer.domElement;
+    stage.insertBefore(cvs, stage.firstChild);
+
+    const scene = new T.Scene();
+    scene.background = new T.Color(0x061430);
+    scene.fog = new T.Fog(0x061430, 26, 80);
+    const camera = new T.PerspectiveCamera(40, 16/10, .1, 220);
+
+    const aniso = renderer.capabilities.getMaxAnisotropy();
+    const tex = (w,h,draw) => { const c = document.createElement('canvas'); c.width = w; c.height = h; draw(c.getContext('2d'), w, h); const t = new T.CanvasTexture(c); t.anisotropy = aniso; return t; };
+    const rep = (t,x,y) => { t.wrapS = t.wrapT = T.RepeatWrapping; t.repeat.set(x,y); return t; };
+    const add = o => { scene.add(o); return o; };
+
+    /* light */
+    add(new T.HemisphereLight(0x9fd8ff, 0x061430, .6));
+    const sun = add(new T.DirectionalLight(0xffffff, .8));
+    sun.position.set(-5,16,7); sun.castShadow = true; sun.shadow.mapSize.set(1024,1024);
+    Object.assign(sun.shadow.camera, {left:-13, right:13, top:9, bottom:-9, near:1, far:45});
+    sun.shadow.camera.updateProjectionMatrix(); sun.shadow.bias = -.0006;
+
+    /* ground, turf, lines */
+    const ground = add(new T.Mesh(new T.PlaneGeometry(200,160), new T.MeshStandardMaterial({color:0x0a1a3c, roughness:1})));
+    ground.rotation.x = -Math.PI/2; ground.position.y = -.01; ground.receiveShadow = true;
+    const turfTex = rep(tex(256,256,(g,w,h) => { g.fillStyle = '#1a4fae'; g.fillRect(0,0,w,h); for (let i=0;i<6000;i++){ g.fillStyle = Math.random() < .5 ? 'rgba(255,255,255,.05)' : 'rgba(0,0,30,.14)'; g.fillRect(Math.random()*w, Math.random()*h, 1.5, 1.5); } }), 6, 3);
+    const turf = add(new T.Mesh(new T.PlaneGeometry(20,10), new T.MeshStandardMaterial({map:turfTex, roughness:.92})));
+    turf.rotation.x = -Math.PI/2; turf.receiveShadow = true;
+    const lineMat = new T.MeshBasicMaterial({color:0xeaf1ff});
+    const stripe = (x,z,lx,lz) => { const m = add(new T.Mesh(new T.PlaneGeometry(lx,lz), lineMat)); m.rotation.x = -Math.PI/2; m.position.set(x,.004,z); };
+    stripe(-6.95,0,.05,10); stripe(6.95,0,.05,10); stripe(0,0,13.9,.05);
+
+    /* net */
+    const metal = new T.MeshStandardMaterial({color:0x5a6f96, roughness:.45, metalness:.5});
+    const netTex = rep(tex(16,16,g => { g.strokeStyle = 'rgba(234,241,255,.8)'; g.lineWidth = 2; g.strokeRect(0,0,16,16); }), 170, 15);
+    const net = add(new T.Mesh(new T.PlaneGeometry(10,.88), new T.MeshBasicMaterial({map:netTex, transparent:true, side:T.DoubleSide, depthWrite:false})));
+    net.rotation.y = Math.PI/2; net.position.set(0,.44,0);
+    add(new T.Mesh(new T.BoxGeometry(.03,.06,10), new T.MeshStandardMaterial({color:0xeaf1ff}))).position.set(0,.88,0);
+    [-5.05,5.05].forEach(z => add(new T.Mesh(new T.CylinderGeometry(.04,.04,.92,10), metal)).position.set(0,.46,z));
+
+    /* glass + wire mesh */
+    const panels = [];
+    const edgeMat = new T.LineBasicMaterial({color:0x8adcff, transparent:true, opacity:.5});
+    const meshBase = tex(32,32,g => { g.strokeStyle = 'rgba(190,205,235,.85)'; g.lineWidth = 1.5; g.beginPath(); g.moveTo(0,0); g.lineTo(32,32); g.moveTo(32,0); g.lineTo(0,32); g.stroke(); });
+    function wall(kind,w,h,x,y,z,ry){
+      const geo = new T.PlaneGeometry(w,h); let mat;
+      if (kind === 'glass') mat = new T.MeshStandardMaterial({color:0x8adcff, transparent:true, opacity:.08, roughness:.05, metalness:.3, side:T.DoubleSide, depthWrite:false});
+      else { const t = meshBase.clone(); t.needsUpdate = true; rep(t, w*5, h*5); mat = new T.MeshBasicMaterial({map:t, transparent:true, opacity:.35, side:T.DoubleSide, depthWrite:false}); }
+      const m = add(new T.Mesh(geo, mat)); m.position.set(x,y,z); m.rotation.y = ry;
+      if (kind === 'glass'){ m.add(new T.LineSegments(new T.EdgesGeometry(geo), edgeMat)); m.userData.flash = 0; panels.push(m); }
+    }
+    [-1,1].forEach(sx => {
+      for (let i=0;i<5;i++) wall('glass',2,3,sx*10,1.5,-4+i*2,Math.PI/2);
+      wall('mesh',10,1,sx*10,3.5,0,Math.PI/2);
+      [-1,1].forEach(sz => { wall('glass',2,3,sx*9,1.5,sz*5,0); wall('glass',2,2,sx*7,1,sz*5,0); });
+    });
+    [-1,1].forEach(sz => wall('mesh',12,3,0,1.5,sz*5,0));
+    const post = (x,z,h) => { const p = add(new T.Mesh(new T.BoxGeometry(.045,h,.045), metal)); p.position.set(x,h/2,z); p.castShadow = true; };
+    [-1,1].forEach(sx => { [-5,-3,-1,1,3,5].forEach(z => post(sx*10,z,4)); [-1,1].forEach(sz => { post(sx*8,sz*5,3); post(sx*6,sz*5,3); }); });
+    for (let x=-4;x<=4;x+=2) [-1,1].forEach(sz => post(x,sz*5,3));
+
+    /* floodlights with fake volumetric beams */
+    const glowTex = tex(64,64,(g,w,h) => { const r = g.createRadialGradient(32,32,0,32,32,32); r.addColorStop(0,'rgba(255,255,255,1)'); r.addColorStop(.25,'rgba(255,255,255,.45)'); r.addColorStop(1,'rgba(255,255,255,0)'); g.fillStyle = r; g.fillRect(0,0,w,h); });
+    const beamMat = new T.MeshBasicMaterial({color:0x8adcff, transparent:true, opacity:.035, blending:T.AdditiveBlending, depthWrite:false, side:T.DoubleSide});
+    [[-5,-1],[5,-1],[-5,1],[5,1]].forEach(([x,sz]) => {
+      const z = sz*5.6;
+      add(new T.Mesh(new T.CylinderGeometry(.06,.08,6.5,8), metal)).position.set(x,3.25,z);
+      const head = add(new T.Mesh(new T.BoxGeometry(.9,.12,.4), new T.MeshBasicMaterial({color:0xf4fbff})));
+      head.position.set(x,6.5,z - sz*.3);
+      const gl = add(new T.Sprite(new T.SpriteMaterial({map:glowTex, color:0xcfeeff, transparent:true, blending:T.AdditiveBlending, depthWrite:false})));
+      gl.scale.set(3,3,1); gl.position.copy(head.position);
+      const th = sz*.48, cone = add(new T.Mesh(new T.ConeGeometry(3.2,6.5,32,1,true), beamMat));
+      cone.rotation.x = th; cone.position.set(x, head.position.y - 3.25*Math.cos(th), head.position.z - 3.25*Math.sin(th));
+    });
+
+    /* dust in the light */
+    const N = 450, dArr = new Float32Array(N*3);
+    for (let i=0;i<N;i++){ dArr[i*3] = (Math.random()-.5)*22; dArr[i*3+1] = Math.random()*6.5; dArr[i*3+2] = (Math.random()-.5)*12; }
+    const dGeo = new T.BufferGeometry(); dGeo.setAttribute('position', new T.BufferAttribute(dArr,3));
+    const dust = add(new T.Points(dGeo, new T.PointsMaterial({color:0xcfe8ff, size:.035, transparent:true, opacity:.5, depthWrite:false})));
+
+    /* Bangkok skyline */
+    const winTex = rep(tex(32,64,(g,w,h) => { g.fillStyle = '#000'; g.fillRect(0,0,w,h); for (let y=2;y<h;y+=6) for (let x=2;x<w;x+=5) if (Math.random() < .35){ g.fillStyle = Math.random() < .7 ? '#ffd98a' : '#bfe6ff'; g.fillRect(x,y,3,3); } }), 1, 1);
+    const bMat = new T.MeshLambertMaterial({color:0x0a1631, emissive:0xffffff, emissiveMap:winTex, emissiveIntensity:.55});
+    const redMat = new T.MeshBasicMaterial({color:0xff3b30});
+    for (let i=0;i<80;i++){
+      const a = Math.random()*Math.PI*2, r = 36 + Math.random()*26, h = 5 + Math.pow(Math.random(),2.2)*38, w = 2 + Math.random()*4.5;
+      const geo = new T.BoxGeometry(w,h,w), uv = geo.attributes.uv;
+      for (let k=0;k<uv.count;k++) uv.setXY(k, uv.getX(k)*w/3, uv.getY(k)*h/6);
+      const b = add(new T.Mesh(geo, bMat)); b.position.set(Math.cos(a)*r, h/2, Math.sin(a)*r*.8);
+      if (h > 28) add(new T.Mesh(new T.SphereGeometry(.25,8,6), redMat)).position.set(b.position.x, h+.3, b.position.z);
+    }
+
+    /* players */
+    function person(color){
+      const g = new T.Group(), mat = new T.MeshStandardMaterial({color, roughness:.55});
+      [[new T.CylinderGeometry(.13,.11,.62,12),.31],[new T.CylinderGeometry(.19,.16,.78,14),1.0],[new T.SphereGeometry(.14,16,12),1.6]].forEach(([geo,y]) => { const m = new T.Mesh(geo, mat); m.position.y = y; m.castShadow = true; g.add(m); });
+      const rk = new T.Group();
+      const face = new T.Mesh(new T.CylinderGeometry(.2,.2,.035,24), new T.MeshStandardMaterial({color:0x101828, roughness:.4})); face.rotation.z = Math.PI/2; face.castShadow = true; rk.add(face);
+      const rim = new T.Mesh(new T.TorusGeometry(.2,.018,8,32), mat); rim.rotation.y = Math.PI/2; rk.add(rim);
+      rk.position.set(.15,1.25,.42); g.add(rk); g.userData.rk = rk;
+      return add(g);
+    }
+    const me = person(0xeaf1ff), partner = person(0x9fb3da), riv = [person(0xff7d4d), person(0xff7d4d)];
+    function racketY(g, y){ g.userData.rk.position.set(.15, y, y > 1.8 ? .22 : .42); }
+
+    /* ball */
+    const ball = add(new T.Mesh(new T.SphereGeometry(.09,24,16), new T.MeshStandardMaterial({color:0xdff54a, emissive:0xb8d020, emissiveIntensity:.8, roughness:.4})));
+    ball.castShadow = true;
+    ball.add(new T.PointLight(0xdff54a, 1.4, 5, 2));
+    const bGlow = new T.Sprite(new T.SpriteMaterial({map:glowTex, color:0xdff54a, transparent:true, blending:T.AdditiveBlending, depthWrite:false}));
+    bGlow.scale.set(.9,.9,1); ball.add(bGlow);
+
+    /* path maths */
+    const SN = 30;
+    const segPos = (s,u) => new T.Vector3(s.a.x + (s.b.x-s.a.x)*u, s.a.y + (s.b.y-s.a.y)*u + 4*s.h*u*(1-u), s.a.z + (s.b.z-s.a.z)*u);
+    function buildPath(P){
+      let a = new T.Vector3(...P.start); const start = a.clone(), segs = [], pts = [a.clone()]; let t0 = 0;
+      for (const s of P.segs){ const seg = {a:a.clone(), b:new T.Vector3(s[0],s[1],s[2]), h:s[3], dur:s[4], type:s[5], t0}; segs.push(seg); t0 += seg.dur; for (let i=1;i<=SN;i++) pts.push(segPos(seg, i/SN)); a = seg.b; }
+      const cum = [0]; for (let i=1;i<pts.length;i++) cum.push(cum[i-1] + pts[i].distanceTo(pts[i-1]));
+      return {start, segs, pts, cum, total:t0, len:cum[cum.length-1]};
+    }
+    function segAt(t){ let k = path.segs.findIndex(s => t <= s.t0 + s.dur); if (k < 0) k = path.segs.length-1; const s = path.segs[k]; return {k, s, u:clamp((t - s.t0)/s.dur, 0, 1)}; }
+    const posAt = t => { const {s,u} = segAt(t); return segPos(s,u); };
+    function fracAt(t){ const {k,u} = segAt(t); const f = k*SN + u*SN, i = Math.floor(f), j = Math.min(i+1, path.cum.length-1); return (path.cum[i] + (path.cum[j]-path.cum[i])*(f-i)) / path.len; }
+
+    /* effects */
+    const ringGeo = new T.RingGeometry(.12,.17,48);
+    let rings = [], marks = [], bursts = [], labels = [];
+    function normalAt(p){ if (p.y < .05) return new T.Vector3(0,1,0); if (Math.abs(p.x) > 9.7) return new T.Vector3(-Math.sign(p.x),0,0); if (Math.abs(p.z) > 4.7) return new T.Vector3(0,0,-Math.sign(p.z)); return new T.Vector3(0,1,0); }
+    function ring(p, n, color, persist){
+      const m = add(new T.Mesh(ringGeo, new T.MeshBasicMaterial({color, transparent:true, opacity:persist ? .7 : 1, side:T.DoubleSide, blending:T.AdditiveBlending, depthWrite:false})));
+      const pos = p.clone();
+      if (n.y) pos.y = .012; else if (n.x) pos.x = -n.x*9.97; else pos.z = -n.z*4.97;
+      m.position.copy(pos); m.lookAt(pos.clone().add(n));
+      if (persist){ m.scale.setScalar(1.6); marks.push(m); } else rings.push({m, t:0});
+    }
+    function burst(p, color){
+      const s = add(new T.Sprite(new T.SpriteMaterial({map:glowTex, color, transparent:true, blending:T.AdditiveBlending, depthWrite:false})));
+      s.position.copy(p); bursts.push({s, t:0});
+    }
+    function label(text, p, cls){ const el = document.createElement('div'); el.className = 'lbl3d ' + cls; el.textContent = text; stage.appendChild(el); labels.push({el, pos:p.clone(), t:0}); }
+    let shake = 0;
+    function fire(type, p){
+      if (type === 'end') return;
+      const P = P3[cur3.k];
+      if (type === 'contact'){ burst(p, 0xffffff); label('HIT', p, 'contact'); return; }
+      if (type === 'out'){ burst(p, 0xff7d4d); label(P.out || 'OUT', p, 'out'); return; }
+      const n = normalAt(p), col = type === 'glass' ? 0x8adcff : 0xdff54a;
+      ring(p, n, col, false); ring(p, n, col, true); burst(p, col);
+      if (type === 'glass'){
+        const pn = panels.reduce((a,b) => a.position.distanceTo(p) < b.position.distanceTo(p) ? a : b);
+        pn.userData.flash = 1; shake = .09; label('GLASS', p, 'glass');
+      } else { shake = .03; label('BOUNCE', p, 'bounce'); }
+    }
+
+    /* state */
+    let path = null, tube = null, glowTube = null, ghost = null, cur3 = null;
+    let t = 0, phase = 'idle', hold = 0, fired = 0, speed = 1;
+    const ballAt = tt => { const p = posAt(tt); ball.position.set(p.x, p.y + .09, p.z); };
+    function setTrail(f){ [tube, glowTube].forEach(o => o.geometry.setDrawRange(0, Math.floor(f*o.userData.n)*8*6)); }
+    function clear(){
+      [tube, glowTube, ghost].forEach(o => { if (o){ scene.remove(o); o.geometry.dispose(); o.material.dispose(); } });
+      marks.forEach(m => { scene.remove(m); m.material.dispose(); }); marks = [];
+      labels.forEach(l => l.el.remove()); labels = [];
+    }
+    function play(sh, animate){
+      cur3 = sh; const P = P3[sh.k]; clear();
+      me.position.set(P.you[0],0,P.you[1]); partner.position.set(P.partner[0],0,P.partner[1]);
+      riv.forEach((r,i) => { r.position.set(P.riv[i][0],0,P.riv[i][1]); r.rotation.y = Math.PI; racketY(r, 1.25); });
+      racketY(me, P.rkY || clamp(P.start[1], .6, 2.5)); racketY(partner, 1.25);
+      path = buildPath(P);
+      const curve = new T.CatmullRomCurve3(path.pts, false, 'centripetal'), n = path.pts.length*3;
+      tube = add(new T.Mesh(new T.TubeGeometry(curve, n, .022, 8, false), new T.MeshBasicMaterial({color:0xdff54a})));
+      glowTube = add(new T.Mesh(new T.TubeGeometry(curve, n, .075, 8, false), new T.MeshBasicMaterial({color:0xdff54a, transparent:true, opacity:.2, blending:T.AdditiveBlending, depthWrite:false})));
+      tube.userData.n = glowTube.userData.n = n;
+      ghost = add(new T.Line(new T.BufferGeometry().setFromPoints(path.pts), new T.LineDashedMaterial({color:0xdff54a, dashSize:.15, gapSize:.15, transparent:true, opacity:.3})));
+      ghost.computeLineDistances();
+      if (animate){ t = 0; fired = 0; phase = 'fly'; setTrail(0); ballAt(0); fire('contact', path.start); }
+      else { t = path.total; phase = 'done'; fired = path.segs.length; setTrail(1); ballAt(t); path.segs.forEach(s => { if (s.type === 'bounce' || s.type === 'glass') ring(s.b, normalAt(s.b), s.type === 'glass' ? 0x8adcff : 0xdff54a, true); }); }
+    }
+
+    /* camera */
+    const MODES = {
+      broadcast:{yaw:Math.PI*.88, pitch:.44, r:22, target:new T.Vector3(1,.3,0)},
+      side:{yaw:Math.PI*.5, pitch:.2, r:16.5, target:new T.Vector3(0,1.2,0)},
+      rival:{yaw:Math.PI*.06, pitch:.28, r:17, target:new T.Vector3(-1,.8,0)},
+    };
+    let mode = 'broadcast', dragYaw = 0, dragPitch = 0, clock = 0;
+    const camPos = new T.Vector3(-18,7,8), camLook = new T.Vector3(0,.6,0);
+    function updCam(dt){
+      let dp, dl;
+      if (mode === 'ball' && path){
+        const tt = Math.min(t, path.total - .031), a = posAt(tt), v = posAt(tt + .03).sub(a);
+        v.y *= .25; if (v.lengthSq() < 1e-6) v.set(1,0,0); v.normalize();
+        dp = a.clone().addScaledVector(v, -3.4); dp.y = Math.max(a.y + 1.1, .6);
+        dl = a.clone().addScaledVector(v, 2.5); dl.y = Math.max(dl.y, .3);
+      } else {
+        const m = MODES[mode === 'ball' ? 'broadcast' : mode], r = m.r * (camera.aspect < 1.4 ? 1.3 : 1);
+        const yaw = m.yaw + dragYaw + (reduce ? 0 : Math.sin(clock*.12)*.07), pitch = clamp(m.pitch + dragPitch, .04, 1.35);
+        dp = m.target.clone().add(new T.Vector3(Math.cos(pitch)*Math.cos(yaw)*r, Math.sin(pitch)*r, Math.cos(pitch)*Math.sin(yaw)*r));
+        dl = m.target.clone();
+      }
+      const k = 1 - Math.exp(-dt*(mode === 'ball' ? 6 : 3));
+      camPos.lerp(dp, k); camLook.lerp(dl, k);
+      camera.position.copy(camPos);
+      if (shake > 0){ camera.position.x += (Math.random()-.5)*shake; camera.position.y += (Math.random()-.5)*shake; shake *= .88; if (shake < .002) shake = 0; }
+      camera.lookAt(camLook);
+    }
+    function setMode(m){ mode = m; dragYaw = 0; dragPitch = 0; $$('[data-cam]', stage).forEach(b => b.setAttribute('aria-pressed', b.dataset.cam === m)); }
+    $$('[data-cam]', stage).forEach(b => b.addEventListener('click', () => setMode(b.dataset.cam)));
+    const slowBtn = $('#slowBtn');
+    slowBtn.addEventListener('click', () => { speed = speed === 1 ? .3 : 1; slowBtn.setAttribute('aria-pressed', speed !== 1); });
+    if (!finePointer) $('#stageHint').textContent = 'Pick a camera above';
+
+    let drag = null;
+    cvs.addEventListener('pointerdown', e => { if (e.pointerType !== 'mouse') return; drag = {x:e.clientX, y:e.clientY}; cvs.setPointerCapture(e.pointerId); cvs.style.cursor = 'grabbing'; if (mode === 'ball') setMode('broadcast'); });
+    cvs.addEventListener('pointermove', e => { if (!drag) return; dragYaw += (e.clientX - drag.x)*.006; dragPitch += (e.clientY - drag.y)*.004; drag = {x:e.clientX, y:e.clientY}; });
+    const endDrag = () => { drag = null; cvs.style.cursor = ''; };
+    cvs.addEventListener('pointerup', endDrag); cvs.addEventListener('pointercancel', endDrag);
+    cvs.addEventListener('dblclick', () => { dragYaw = 0; dragPitch = 0; });
+
+    /* loop */
+    function update(dt){
+      clock += dt;
+      if (phase === 'fly'){
+        t += dt*speed;
+        while (fired < path.segs.length && t >= path.segs[fired].t0 + path.segs[fired].dur){ const s = path.segs[fired]; fire(s.type, s.b); fired++; }
+        if (t >= path.total){ t = path.total; phase = 'hold'; hold = 2.2; }
+        ballAt(t); setTrail(fracAt(t));
+      } else if (phase === 'hold' && !reduce){ hold -= dt; if (hold <= 0) play(cur3, true); }
+      rings = rings.filter(r => { r.t += dt; r.m.scale.setScalar(1 + r.t*14); r.m.material.opacity = Math.max(0, 1 - r.t/.8); if (r.t > .8){ scene.remove(r.m); r.m.material.dispose(); return false; } return true; });
+      bursts = bursts.filter(b => { b.t += dt; const s = .4 + b.t*6; b.s.scale.set(s,s,1); b.s.material.opacity = Math.max(0, 1 - b.t/.45); if (b.t > .45){ scene.remove(b.s); b.s.material.dispose(); return false; } return true; });
+      panels.forEach(p => { if (p.userData.flash > 0){ p.userData.flash = Math.max(0, p.userData.flash - dt*2.2); p.material.opacity = .08 + .5*p.userData.flash; } });
+      bGlow.material.opacity = .75 + Math.sin(clock*12)*.15;
+      if (!reduce) dust.rotation.y += dt*.012;
+      updCam(dt);
+      const w = stage.clientWidth, h = stage.clientHeight;
+      labels = labels.filter(l => {
+        l.t += dt; if (l.t > 1.6){ l.el.remove(); return false; }
+        const v = l.pos.clone(); v.y += .3 + l.t*.35; v.project(camera);
+        if (v.z > 1){ l.el.style.opacity = 0; return true; }
+        l.el.style.transform = `translate(${((v.x+1)/2*w).toFixed(1)}px,${((1-v.y)/2*h).toFixed(1)}px) translate(-50%,-100%)`;
+        l.el.style.opacity = l.t < 1.1 ? 1 : 1 - (l.t - 1.1)/.5;
+        return true;
+      });
+    }
+    function resize(){ const w = stage.clientWidth, h = stage.clientHeight; if (!w || !h) return; renderer.setSize(w, h, false); camera.aspect = w/h; camera.updateProjectionMatrix(); }
+    new ResizeObserver(resize).observe(stage); resize();
+    let visible = true, last = 0;
+    new IntersectionObserver(e => { visible = e[0].isIntersecting; }, {threshold:0}).observe(stage);
+    function frame(now){
+      requestAnimationFrame(frame);
+      if (!visible || document.hidden){ last = 0; return; }
+      const dt = Math.min(.05, (now - (last || now))/1000); last = now;
+      if (path) update(dt);
+      renderer.render(scene, camera);
+    }
+    requestAnimationFrame(frame);
+    return { play };
+  }
+  let v3 = null;
+  try { v3 = build3D(); } catch(e){ console.error(e); v3 = null; }
+  if (!v3){ $('#stage3d').hidden = true; $('#side2d').hidden = false; }
+
+  const list = $('#shotList'), live = $('#shotPathLive'), ghost = $('#shotPath'), ballEl = $('#sideBall'), shadow = $('#ballShadow');
+  const marks = $('#marks'), players = $('#players');
+  const ticks = $('#ticks');
+  for (let m=0;m<=20;m+=2){ const x = m*50; ticks.insertAdjacentHTML('beforeend', `<line x1="${x}" y1="280" x2="${x}" y2="288" stroke="#a3b6dc"/><text x="${clamp(x,10,986)}" y="306" text-anchor="middle">${m}${m===20?' m':''}</text>`); }
+
+  function figure(x, color, label){
+    return `<g transform="translate(${x},280)"><rect x="-9" y="-72" width="18" height="58" rx="9" fill="${color}" fill-opacity=".85"/><rect x="-8" y="-20" width="6" height="20" rx="3" fill="${color}" fill-opacity=".6"/><rect x="2" y="-20" width="6" height="20" rx="3" fill="${color}" fill-opacity=".6"/><circle cy="-82" r="9" fill="${color}"/><text y="-98" text-anchor="middle" font-family="JetBrains Mono, monospace" font-size="11" fill="${color}">${label}</text></g>`;
+  }
+  let raf = 0, cur = null;
+  function select(sh, animate){
+    cancelAnimationFrame(raf); cur = sh;
+    $$('.shot-btn', list).forEach(b => b.setAttribute('aria-pressed', b.dataset.k === sh.k));
+    $('#shotName').innerHTML = `${sh.n} <small>${sh.tr}</small>`;
+    $('#shotWhat').textContent = sh.what;
+    $('#shotLvl').textContent = sh.lvl;
+    $('#shotCue').innerHTML = `<b>Coach's cue</b>${sh.cue}`;
+    if (v3){ v3.play(sh, animate); return; }
+    players.innerHTML = figure(sh.you, '#eaf1ff', 'YOU') + sh.riv.map((x,i) => figure(x, '#ff7d4d', i ? '' : 'RIVALS')).join('');
+    live.setAttribute('d', sh.d); ghost.setAttribute('d', sh.d);
+    const L = live.getTotalLength();
+    // find path length of each mark by sampling
+    const N = 500, samples = [];
+    for (let i=0;i<=N;i++){ const p = live.getPointAtLength(L*i/N); samples.push([p.x,p.y]); }
+    const mk = sh.m.map(([mx,my]) => { let bi = 0, bd = 1e9; samples.forEach(([x,y],i) => { const d = (x-mx)**2 + (y-my)**2; if (d < bd){ bd = d; bi = i; } }); return {x:mx, y:my, len:L*bi/N}; });
+    marks.innerHTML = mk.map(m => `<circle class="mark" cx="${m.x}" cy="${m.y}" r="11" fill="none" stroke="${m.x<=8||m.x>=992?'#8adcff':'#dff54a'}" stroke-width="2.5"/>`).join('');
+    if (sh.out){ marks.insertAdjacentHTML('beforeend', `<text class="mark" x="${sh.out[0]}" y="${sh.out[1]}" text-anchor="end" font-family="JetBrains Mono, monospace" font-size="13" fill="#ff7d4d">${sh.out[2]} ↗</text>`); mk.push({len:L-2}); }
+    const mEls = $$('.mark', marks);
+    live.style.strokeDasharray = L;
+    const place = len => {
+      const p = live.getPointAtLength(len);
+      ballEl.setAttribute('cx', p.x); ballEl.setAttribute('cy', p.y);
+      const hgt = clamp((280 - p.y)/280, 0, 1);
+      shadow.setAttribute('cx', p.x); shadow.setAttribute('rx', 10 - hgt*6); shadow.setAttribute('fill-opacity', .45 - hgt*.3);
+      live.style.strokeDashoffset = L - len;
+      mk.forEach((m,i) => mEls[i].classList.toggle('on', len >= m.len - 1));
+    };
+    if (!animate || reduce){ place(L); return; }
+    place(0);
+    const dur = 900 + L*.9, t0 = performance.now();
+    const step = t => { const k = Math.min(1, (t-t0)/dur); const e = k<.5 ? 2*k*k : 1 - Math.pow(-2*k+2,2)/2; place(L*(.15*k + .85*e)); if (k < 1) raf = requestAnimationFrame(step); };
+    raf = requestAnimationFrame(step);
+  }
+  SHOTS.forEach(sh => {
+    const b = document.createElement('button');
+    b.type = 'button'; b.className = 'shot-btn'; b.dataset.k = sh.k; b.setAttribute('aria-pressed','false');
+    b.innerHTML = `${sh.n}<small>${sh.lvl.replace('From level ','Lv ')}</small>`;
+    b.addEventListener('click', () => select(sh, true));
+    list.appendChild(b);
+  });
+  $('#replay').addEventListener('click', () => cur && select(cur, true));
+  select(SHOTS[0], false);
+  if ('IntersectionObserver' in window && !reduce){
+    const io = new IntersectionObserver(e => { if (e[0].isIntersecting){ io.disconnect(); select(SHOTS[0], true); } }, {threshold:.5});
+    io.observe($('#sideSvg'));
+  }
+})();
+
+/* =====================================================
+   LEVEL FINDER
+   ===================================================== */
+const level = (function(){
+  /* Each answer maps to the level where that behaviour is typical. The estimate is a weighted average,
+     then limited by hard ceilings (skills you can't skip) and floors (results you can't fake). */
+  const Q = [
+    {k:'exp', area:'Experience', w:.6, pre:2, q:'How long and how often have you played?', o:[
+      ['Never played',0],['A few times',.5],['Under 6 months, about weekly',1.5],['6–24 months, weekly',2.5],['2+ years, twice a week or more',3.5]]},
+    {k:'rally', area:'Consistency', w:1, pre:2, q:'In a relaxed rally from the back of the court, you can…', o:[
+      ['Keep 1–2 shots in',.3],['Keep 3–6 shots in',1.3],['Keep 10+ in, mostly where I aim',2.6],['Rally as long as needed, changing pace and direction',3.8]]},
+    {k:'glass', area:'Back glass', w:1.3, pre:2, q:'A deep ball bounces and comes off your back glass. You…', o:[
+      ['Usually miss it',.5],['Return it if it comes off slowly',1.5],['Return most of them, often with a lob',2.5],['Handle double walls too (side, then back glass)',3.5],['Attack it with a bajada when it sits up',4.6]]},
+    {k:'net', area:'Volleys', w:1.1, pre:2, q:'At the net, your volleys…', o:[
+      ['I avoid the net',.5],['Get blocked back over',1.5],['Go deep and keep me at the net',2.6],['Mix deep volleys with angles to the side glass',3.6],['Finish points: angled, dropped or through the middle',4.8]]},
+    {k:'over', area:'Overheads', w:1.3, pre:3, q:'A lob goes over your head while you\'re at the net. You…', o:[
+      ['Run back and let it bounce',1],['Smash it, and it often comes back or goes out',1.6],['Play a bandeja that sometimes lands short',2.5],['Play a deep, consistent bandeja',3.4],['Choose bandeja, víbora or smash depending on the ball',4.4],['Finish it with a por tres or por cuatro',5.6]]},
+    {k:'lob', area:'Lob', w:1, pre:2, q:'Your own lob is…', o:[
+      ['Not something I play on purpose',.8],['Played when I\'m in trouble, often short',1.8],['How I win back the net',3],['A weapon: high, deep, with spin, even off the glass',4.5]]},
+    {k:'tac', area:'Positioning', w:1, pre:2, q:'With your partner, you…', o:[
+      ['Aren\'t sure where to stand',.5],['Know the basics: both back or both at the net',1.6],['Move together and cover the middle',3],['Build points: lob, take the net, chiquita',4.2],['Plan matches and change it when it\'s not working',5.4]]},
+    {k:'comp', area:'Competition', w:.8, pre:1, q:'Who do you play against?', o:[
+      ['Nobody yet',.3],['Friends and social americanos',2],['Club league, middle of the table',3.4],['Top of a club league, or tournament finals',4.7],['National ranking or FIP events',6.2]]},
+    {k:'bg', area:'Background', w:0, pre:2, q:'Other racket sports?', o:[
+      ['None',0],['Casual',0],['Tennis or squash, regularly',.25],['Competitive tennis or squash',.5]]},
+  ];
+  const TIPS = {
+    rally:'build 10-shot rallies at 70% pace before adding power.',
+    glass:'let the ball come off the glass to you, turn early, and hit up and out.',
+    net:'short backswing on the volley, aim deep at the rivals\' feet.',
+    over:'get a reliable bandeja before trying to smash everything.',
+    lob:'a high, deep lob is the shot that wins back the net.',
+    tac:'move as one unit with your partner and cover the middle first.',
+  };
+  const BANDS = [
+    {lo:0, hi:.9, n:'Initiation', look:'First times on court. Learning the grip and getting the ball over the net. Points end after one or two shots.', half:'0.5: you serve and return gentle balls that come straight to you.', next:'Keep a slow 5-shot rally and learn when to let the ball go to the glass.'},
+    {lo:1, hi:1.9, n:'Beginner', look:'Slow rallies from the back. A ball off the back glass usually ends the point. You stay away from the net.', half:'1.5: slow back-glass balls come back and your serve is reliable.', next:'Return most balls off the back glass, start volleying, and lob on purpose.'},
+    {lo:2, hi:2.9, n:'Improver', look:'Rallies of 6–10 shots. You return simple glass balls, lob to defend and go to the net after a good lob. Overheads are mostly flat smashes.', half:'2.5: first bandejas appear and your volleys go deep instead of just back.', next:'A reliable bandeja, double-wall returns, and moving with your partner as one unit.'},
+    {lo:3, hi:3.9, n:'Intermediate', look:'You place the ball. The bandeja keeps you at the net, side and back glass don\'t scare you, and you use the chiquita. You know when to attack and when to reset.', half:'3.5: the víbora appears, volleys find angles, and you make fewer errors against pace.', next:'Attack off the glass with the bajada, finish with víbora or smash, and change pace and spin on purpose.'},
+    {lo:4, hi:4.9, n:'Intermediate high', look:'Full set of shots: víbora, bajada, chiquita, tactical lobs. You play club leagues and win more than you lose.', half:'4.5: you try por tres to close points and build patterns with your partner.', next:'Stay consistent under pressure, hit por tres and por cuatro on demand, and adapt your plan mid-match.'},
+    {lo:5, hi:5.9, n:'Advanced', look:'Top of club leagues and regional tournaments. You give away very few free points and exploit where the rivals stand.', half:'5.5: tournament finals, and your overheads finish points reliably.', next:'The physical and mental level of competitive circuits, usually with training most days.'},
+    {lo:6, hi:7, n:'Elite', look:'National and international circuit players. 7.0 is the professional tour.', half:'6.5: national ranking and regular FIP events.', next:'This is the top of the scale.'},
+  ];
+  const form = $('#levelForm');
+  form.innerHTML = Q.map((x,i) => `<fieldset class="q"><legend>${x.q}</legend><div class="opts">${x.o.map((o,j) => `<input type="radio" name="q${i}" id="q${i}o${j}" value="${j}" ${j===x.pre?'checked':''}><label for="q${i}o${j}">${o[0]}</label>`).join('')}</div></fieldset>`).join('');
+  const ladder = $('#ladder');
+  ladder.innerHTML = BANDS.map((b,i) => ({b,i})).reverse().map(({b,i}) => `
+    <li class="band" data-i="${i}">
+      <button class="band-h" type="button" aria-expanded="false" aria-controls="bandB${i}">
+        <span class="rng">${b.lo.toFixed(1)}–${b.hi.toFixed(1)}</span><b>${b.n}</b><span class="chev">+</span>
+      </button>
+      <div class="band-pos" hidden><i></i></div>
+      <div class="band-b" id="bandB${i}" hidden>
+        <p>${b.look}</p>
+        <dl><div><dt>Upper half</dt><dd>${b.half}</dd></div><div><dt>${i < BANDS.length-1 ? 'To reach ' + BANDS[i+1].lo.toFixed(1) : 'Next'}</dt><dd>${b.next}</dd></div></dl>
+      </div>
+    </li>`).join('');
+  const open = new Set();
+  function toggleBand(li, on){
+    const i = +li.dataset.i, b = li.querySelector('.band-b'), h = li.querySelector('.band-h');
+    b.hidden = !on; h.setAttribute('aria-expanded', on); h.querySelector('.chev').textContent = on ? '–' : '+';
+    on ? open.add(i) : open.delete(i);
+  }
+  $$('.band', ladder).forEach(li => li.querySelector('.band-h').addEventListener('click', () => toggleBand(li, !open.has(+li.dataset.i))));
+  const gT = $('#gTicks');
+  for (let v=0; v<=7; v++){ const a = Math.PI - v/7*Math.PI, x = 120 + Math.cos(a)*78, y = 124 - Math.sin(a)*78; gT.insertAdjacentHTML('beforeend', `<text x="${x.toFixed(1)}" y="${(y+4).toFixed(1)}">${v}</text>`); }
+  const PROG = [
+    {max:1.49, n:'First Rally', note:'Start with the basics in a small group. Rackets are on us.'},
+    {max:2.99, n:'Glass & Grip', note:'You can rally. Now learn to use the walls instead of running from them.'},
+    {max:4.49, n:'Net Pressure', note:'Time to own the net: bandeja, víbora and moving as a pair.'},
+    {max:7, n:'Match Lab', note:'You win points already. We work on patterns, tactics and video review.'},
+  ];
+  let lvl = 3, lastBand = -1;
+  function estimate(){
+    const L = {};
+    Q.forEach((x,i) => { const c = form.querySelector(`input[name=q${i}]:checked`); L[x.k] = x.o[c ? +c.value : x.pre][1]; });
+    const skill = Q.filter(x => x.w > 0);
+    const W = skill.reduce((s,x) => s + x.w, 0);
+    let v = skill.reduce((s,x) => s + x.w*L[x.k], 0) / W;
+    const sd = Math.sqrt(skill.reduce((s,x) => s + x.w*(L[x.k]-v)**2, 0) / W);
+    if (v < 3.5) v += L.bg;
+    let cap = null;
+    const ceil = (lim, why) => { if (v > lim){ v = lim; cap = why; } };
+    if (L.rally <= .3) ceil(1.2, 'Rallies of one or two shots keep you below 1.5, whatever else you can do.');
+    if (L.glass <= .5) ceil(2.0, 'Missing balls off the back glass caps you at 2.0. It\'s the first wall to climb.');
+    else if (L.glass <= 1.5) ceil(2.9, 'Only returning slow back-glass balls caps you below 3.0.');
+    if (L.over <= 1.6) ceil(3.4, 'Without a controlled overhead (bandeja) it\'s hard to go past 3.4.');
+    const vSkill = v;
+    if (L.comp >= 6.2) v = Math.max(v, 6.0); else if (L.comp >= 4.7) v = Math.max(v, 4.0);
+    v = clamp(Math.round(v*10)/10, 0, 7);
+    const half = clamp(.2 + sd*.15, .25, .7);
+    const gaps = skill.filter(x => TIPS[x.k] && L[x.k] < vSkill - .4).sort((a,b) => (L[a.k]-v)*a.w - (L[b.k]-v)*b.w).slice(0,2);
+    return {v, lo:clamp(Math.round((v-half)*10)/10,0,7), hi:clamp(Math.round((v+half)*10)/10,0,7), cap, gaps};
+  }
+  function calc(){
+    const r = estimate(); lvl = r.v;
+    const p = PROG.find(x => lvl <= x.max);
+    const bi = BANDS.findIndex(b => lvl <= b.hi + .05), band = BANDS[bi];
+    $('#lvlNum').textContent = lvl.toFixed(1);
+    $('#lvlBand').textContent = band.n;
+    $('#lvlRange').textContent = `Likely range ${r.lo.toFixed(1)}–${r.hi.toFixed(1)}`;
+    $('#lvlProg').textContent = p.n;
+    $('#lvlNote').textContent = p.note;
+    $('#lvlCap').hidden = !r.cap; $('#lvlCap').textContent = r.cap || '';
+    $('#lvlGap').innerHTML = r.gaps.length
+      ? r.gaps.map(g => `<b>Work on ${g.area.toLowerCase()}:</b> ${TIPS[g.k]}`).join('<br>')
+      : `<b>Balanced game.</b> To move up: ${band.next.charAt(0).toLowerCase() + band.next.slice(1)}`;
+    $$('.band', ladder).forEach(li => {
+      const i = +li.dataset.i, cur = i === bi, b = BANDS[i];
+      li.classList.toggle('cur', cur);
+      const h = li.querySelector('.band-h'), tag = h.querySelector('.tag-you');
+      if (cur && !tag) h.querySelector('.chev').insertAdjacentHTML('beforebegin', `<span class="tag-you">YOU ${lvl.toFixed(1)}</span>`);
+      else if (cur) tag.textContent = 'YOU ' + lvl.toFixed(1);
+      else if (tag) tag.remove();
+      li.querySelector('.band-pos').hidden = !cur;
+      if (cur) li.querySelector('.band-pos i').style.left = (clamp((lvl - b.lo)/(b.hi + .1 - b.lo), 0, 1)*100) + '%';
+    });
+    if (bi !== lastBand){ $$('.band', ladder).forEach(li => toggleBand(li, +li.dataset.i === bi)); lastBand = bi; }
+    $('#gArc').setAttribute('stroke-dashoffset', (100 - lvl/7*100).toFixed(1));
+    $('#gNeedle').style.transform = `rotate(${(lvl/7*180 - 90).toFixed(1)}deg)`;
+    $$('#progCards .prow').forEach(c => c.classList.toggle('match', lvl >= +c.dataset.min && lvl <= +c.dataset.max));
+    const match = $('#progCards .prow.match');
+    $('#lvlBook').dataset.focus = match ? match.dataset.focus : '';
+    $('#lvlBook').textContent = 'Book ' + p.n;
+    document.dispatchEvent(new CustomEvent('levelchange'));
+  }
+  form.addEventListener('change', calc);
+  calc();
+  return { get: () => lvl };
+})();
+
+
+/* =====================================================
+   COACHES (placeholder profiles)
+   ===================================================== */
+(function coaches(){
+  const C = [
+    {n:'Javier Molina', i:'JM', role:'HEAD COACH · VALENCIA', bio:'Twelve years coaching club players in Valencia before moving to Bangkok. Lives at the net.', l:'EN · ES', s:[['ATTACK',92],['DEFENCE',74],['TACTICS',86]], c:['#1446a0','#8adcff']},
+    {n:'Lucía Ferraro', i:'LF', role:'DEFENCE & GLASS · ROSARIO', bio:'Grew up on Argentine courts where every ball comes back. Teaches the walls better than anyone.', l:'EN · ES · IT', s:[['ATTACK',70],['DEFENCE',95],['TACTICS',84]], c:['#0a1d44','#ff7d4d']},
+    {n:'Ploy Srisuk', i:'PS', role:'BEGINNERS & JUNIORS · BANGKOK', bio:'Former national-level badminton player. Gets total beginners rallying in their first hour.', l:'ไทย · EN', s:[['ATTACK',78],['DEFENCE',82],['TEACHING',97]], c:['#123f94','#dff54a']},
+    {n:'Tom Achterberg', i:'TA', role:'MATCH LAB · AMSTERDAM', bio:'Runs our video analysis. Turns one filmed league match into three things to fix this week.', l:'EN · NL', s:[['ATTACK',80],['DEFENCE',78],['TACTICS',96]], c:['#061430','#8adcff']},
+  ];
+  // flat court colours: blue, terracotta, green, slate (padel courts come in all of them)
+  const PH = ['#1446a0','#b5532f','#2f6b4e','#3c4a6b'];
+  const AT = ['Usually at Sukhumvit · Mon, Wed, Fri evenings','Usually at Ari · Tue & Thu evenings, Sat morning','Usually at Rama 9 · weekday 07:00 sessions','Usually at Sukhumvit · Sat & Sun'];
+  const wrap = $('#coachCards');
+  wrap.innerHTML = C.map((c,k) => `
+    <article class="coach">
+      <div class="ph" style="background:${PH[k]}">
+        <svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice" aria-hidden="true">
+          <g stroke="#eaf1ff" stroke-opacity=".22" stroke-width="2" fill="none"><rect x="30" y="30" width="340" height="240"/><line x1="200" y1="30" x2="200" y2="270" stroke-dasharray="6 5"/><line x1="94" y1="30" x2="94" y2="270"/><line x1="306" y1="30" x2="306" y2="270"/><line x1="94" y1="150" x2="306" y2="150"/></g>
+        </svg>
+        <b>${c.i}</b>
+      </div>
+      <div class="bd">
+        <span class="role">${c.role}</span>
+        <h3>${c.n}</h3>
+        <p>${c.bio}</p>
+        <span class="langs">${c.l}</span>
+        <span class="at">${AT[k]}</span>
+      </div>
+    </article>`).join('');
+})();
+
+/* =====================================================
+   BOOKING
+   ===================================================== */
+(function booking(){
+  const FMT = [
+    {k:'private', n:'Private', d:'1 player', pp:1800, players:1},
+    {k:'duo', n:'Duo', d:'2 players', pp:1100, players:2},
+    {k:'clinic', n:'Clinic', d:'4 players · come alone', pp:650, players:4},
+  ];
+  const DUR = [{m:60, f:1, n:'60 min'}, {m:90, f:1.5, n:'90 min'}];
+  const TIMES = ['07:00','08:30','17:00','18:30','20:00','21:30'];
+  const st = {fmt:FMT[1], dur:DUR[0], day:1, time:'18:30'};
+  // Bangkok "today"
+  const today = new Intl.DateTimeFormat('en-CA', {timeZone:'Asia/Bangkok'}).format(new Date()).split('-').map(Number);
+  const days = Array.from({length:7}, (_,i) => {
+    const d = new Date(Date.UTC(today[0], today[1]-1, today[2]+i));
+    return {
+      i, seed: d.getUTCDate() + d.getUTCMonth()*31,
+      wd: i===0 ? 'Today' : i===1 ? 'Tomorrow' : d.toLocaleDateString('en-GB',{weekday:'short', timeZone:'UTC'}),
+      dm: d.toLocaleDateString('en-GB',{day:'numeric', month:'short', timeZone:'UTC'}),
+      long: d.toLocaleDateString('en-GB',{weekday:'short', day:'numeric', month:'short', timeZone:'UTC'}),
+    };
+  });
+  const nowBkk = +new Intl.DateTimeFormat('en-GB',{timeZone:'Asia/Bangkok', hour:'2-digit', hour12:false}).format(new Date());
+  const taken = (day, ti) => (day.i === 0 && +TIMES[ti].slice(0,2) <= nowBkk) || ((day.seed*7 + ti*13) % 5 === 0);
+
+  function chip(el, html, pressed, onClick, cls='', disabled=false){
+    const b = document.createElement('button'); b.type = 'button'; b.className = 'chip ' + cls; b.innerHTML = html;
+    b.setAttribute('aria-pressed', pressed); b.disabled = disabled; b.addEventListener('click', onClick); el.appendChild(b);
+  }
+  function render(){
+    const f = $('#fmtChips'); f.innerHTML = '';
+    FMT.forEach(x => chip(f, `<b>${x.n}</b><small>${x.d} · ${thb(x.pp)}${x.players>1?' each':''}</small>`, st.fmt===x, () => { st.fmt = x; render(); }, 'fmt'));
+    const du = $('#durChips'); du.innerHTML = '';
+    DUR.forEach(x => chip(du, x.n, st.dur===x, () => { st.dur = x; render(); }));
+    const dy = $('#dayChips'); dy.innerHTML = '';
+    days.forEach(d => chip(dy, `${d.wd}<small>${d.dm}</small>`, st.day===d.i, () => { st.day = d.i; render(); }));
+    const day = days[st.day];
+    if (TIMES.indexOf(st.time) < 0 || taken(day, TIMES.indexOf(st.time))) st.time = TIMES.find((t,ti) => !taken(day, ti)) || null;
+    const tm = $('#timeChips'); tm.innerHTML = '';
+    TIMES.forEach((t,ti) => chip(tm, `${t}<small>${taken(day,ti)?'Full':'Open'}</small>`, st.time===t, () => { st.time = t; render(); }, '', taken(day,ti)));
+    const pp = Math.round(st.fmt.pp * st.dur.f), total = pp * st.fmt.players;
+    $('#tFmt').textContent = `${st.fmt.n} · ${st.dur.n}`;
+    $('#tDay').textContent = day.long;
+    $('#tTime').textContent = st.time || 'No open slots';
+    $('#tFocus').textContent = $('#bkFocus').value;
+    $('#tPP').textContent = thb(pp) + (st.fmt.players > 1 ? ` × ${st.fmt.players}` : '');
+    $('#tTotal').textContent = thb(total);
+    $('#prepBtn').disabled = !st.time;
+    if (!$('#msgBox').hidden) buildMsg();
+  }
+  function buildMsg(){
+    const day = days[st.day], name = $('#bkName').value.trim();
+    $('#bkMsg').value = `Hi Bandeja Lab! I'd like to book a ${st.fmt.n} session (${st.dur.n}) on ${day.long} at ${st.time}.\nFocus: ${$('#bkFocus').value}\nMy level: about ${level.get().toFixed(1)}\nName: ${name || '(your name)'}`;
+  }
+  $('#bkFocus').addEventListener('change', render);
+  $('#bkName').addEventListener('input', () => { if (!$('#msgBox').hidden) buildMsg(); });
+  $('#prepBtn').addEventListener('click', () => { buildMsg(); $('#msgBox').hidden = false; $('#copyNote').textContent = ''; });
+  $('#copyBtn').addEventListener('click', () => {
+    const ta = $('#bkMsg');
+    const fallback = () => { ta.focus(); ta.select(); $('#copyNote').textContent = 'Selected. Press Ctrl+C or ⌘C to copy.'; };
+    if (navigator.clipboard && navigator.clipboard.writeText){
+      navigator.clipboard.writeText(ta.value).then(() => { $('#copyNote').textContent = 'Copied. Paste it into LINE.'; }, fallback);
+    } else fallback();
+  });
+  function pickFocus(f){ if (!f) return; const sel = $('#bkFocus'); const o = Array.from(sel.options).find(o => o.text === f); if (o){ sel.value = o.text; render(); } }
+  $$('[data-pick]').forEach(a => a.addEventListener('click', () => pickFocus(a.closest('.prow').dataset.focus)));
+  $('#lvlBook').addEventListener('click', e => pickFocus(e.currentTarget.dataset.focus));
+  document.addEventListener('levelchange', () => { if (!$('#msgBox').hidden) buildMsg(); });
+  render();
+})();
+})();
+</script>
+</body>
+</html>
